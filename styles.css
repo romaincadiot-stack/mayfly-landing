@@ -712,7 +712,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 
   .hero__mockup {
-    order: -1;
+    order: 1;
   }
 
   .mockup-card {
@@ -1326,5 +1326,428 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   .reveal-stagger > * {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ============================================
+   MOBILE OVERRIDES
+   Desktop (>= 1024px) remains unchanged.
+   Only max-width rules below.
+   ============================================ */
+
+/* --------------------------------------------
+   Tablet / Large Mobile (max-width: 1023px)
+   -------------------------------------------- */
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  /* Features grid: 2 columns on tablet */
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* Security badges wrap better */
+  .security__badges {
+    gap: var(--space-lg);
+  }
+
+  /* Product section already handled at 968px */
+}
+
+/* --------------------------------------------
+   Mobile (max-width: 768px)
+   -------------------------------------------- */
+@media (max-width: 768px) {
+  /* Reduce base spacing */
+  :root {
+    --header-height: 64px;
+  }
+
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  /* Typography scaling */
+  h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 4vw, 1.25rem);
+  }
+
+  /* Hero adjustments */
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + var(--space-xl));
+    padding-bottom: var(--space-2xl);
+  }
+
+  .hero__badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  /* Mockup card mobile */
+  .mockup-card {
+    padding: var(--space-md);
+    max-width: 100%;
+  }
+
+  .mockup-card__flight {
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .mockup-card__flight-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mockup-card__flight-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .mockup-card__flight-info p {
+    font-size: 0.75rem;
+  }
+
+  .mockup-card__timing {
+    font-size: 0.75rem;
+    padding: var(--space-xs) var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .milestone {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8rem;
+  }
+
+  .milestone__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .milestone__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Features: 2 columns on mobile */
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .features__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .features__header p {
+    font-size: 0.95rem;
+  }
+
+  .feature-card {
+    padding: var(--space-md);
+  }
+
+  .feature-card__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-card__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .feature-card__desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* Product section mobile */
+  .product__screen-body {
+    padding: var(--space-md);
+    min-height: auto;
+    gap: var(--space-sm);
+  }
+
+  .product__screen-row {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .product__screen-card {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .product__screen-label {
+    font-size: 0.65rem;
+  }
+
+  .product__screen-value {
+    font-size: 1.1rem;
+  }
+
+  .product__screen-value--warning {
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .product__screen-activity {
+    padding: var(--space-sm);
+  }
+
+  .product__screen-activity-row {
+    font-size: 0.65rem;
+  }
+
+  .product__info p {
+    font-size: 0.95rem;
+  }
+
+  .product__list li {
+    font-size: 0.9rem;
+  }
+
+  .product__list-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Security section */
+  .security__badges {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .security__badge {
+    width: 100%;
+    max-width: 280px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .security__badge-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .security__badge-text {
+    text-align: left;
+  }
+
+  /* CTA section */
+  .cta__box,
+  .cta__box--premium {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .cta__secondary {
+    font-size: 0.9rem;
+  }
+
+  .cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer__content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  .footer__logo {
+    justify-content: center;
+  }
+
+  /* Nav logo mobile */
+  .nav__logo img {
+    height: 40px;
+    max-width: 120px;
+  }
+}
+
+/* --------------------------------------------
+   Small Mobile (max-width: 480px)
+   -------------------------------------------- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  /* Even smaller typography */
+  h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+  }
+
+  /* Hero */
+  .hero__badge {
+    font-size: 0.7rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Mockup card */
+  .mockup-card {
+    padding: var(--space-sm);
+  }
+
+  .mockup-card__header {
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .mockup-card__title {
+    font-size: 0.8rem;
+  }
+
+  .mockup-card__status {
+    font-size: 0.7rem;
+  }
+
+  .mockup-card__flight {
+    padding: var(--space-sm);
+  }
+
+  .mockup-card__flight-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mockup-card__flight-info h4 {
+    font-size: 0.85rem;
+  }
+
+  .mockup-card__milestones {
+    gap: 4px;
+  }
+
+  .milestone {
+    gap: var(--space-sm);
+    padding: 6px var(--space-sm);
+  }
+
+  .milestone__bar {
+    width: 50px;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    padding: var(--space-md);
+  }
+
+  .feature-card__title {
+    font-size: 1rem;
+  }
+
+  /* Product dashboard */
+  .product__screen-header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .product__screen-value {
+    font-size: 1rem;
+  }
+
+  .product__screen-activity-text {
+    font-size: 0.6rem;
+  }
+
+  /* CTA */
+  .cta__box,
+  .cta__box--premium {
+    padding: var(--space-lg);
+  }
+
+  .cta h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta__secondary {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Buttons touch-friendly */
+  .btn {
+    min-height: 48px;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .btn--large {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Nav logo even smaller */
+  .nav__logo img {
+    height: 36px;
+    max-width: 100px;
+  }
+
+  /* Footer minimal */
+  .footer {
+    padding: var(--space-lg) 0;
+  }
+
+  .footer__copy {
+    font-size: 0.8rem;
   }
 }
