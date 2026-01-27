@@ -80,11 +80,11 @@
           Coming Soon
         </div>
         <h1 class="hero__title">
-          Turnaround operations,<br>
+          Ground handling operations,<br>
           <span class="text-gradient">finally in one place.</span>
         </h1>
         <p class="hero__subtitle">
-          MAYFLY centralizes operational data into a single source of truth for turnaround operations, helping teams stay aligned in real time.
+          MAYFLY centralizes operational data into a single source of truth for airport operations, helping teams stay aligned in real time.
         </p>
         <div class="hero__actions">
           <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--large">
@@ -102,11 +102,11 @@
 
           <div class="mockup-card__flight">
             <div class="mockup-card__flight-icon mockup-card__flight-icon--img">
-              <img src="assets/logo/iconesvg.svg" alt="Airline" width="32" height="32">
+              <img src="assets/logo/BA.png" alt="British Airways" width="32" height="32">
             </div>
             <div class="mockup-card__flight-info">
-              <h4>SKY 452 • CDG → NCE</h4>
-              <p>A320 • Gate B42</p>
+              <h4>BA 8173 • BRS → LYS</h4>
+              <p>A320 • Gate C14</p>
             </div>
           </div>
 
@@ -117,44 +117,52 @@
             <span class="mockup-card__delay">(+18 min)</span>
           </div>
 
-          <div class="mockup-card__milestones">
-            <div class="milestone milestone--complete">
-              <span class="milestone__icon milestone__icon--check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </span>
-              <span class="milestone__label">Block ON</span>
-              <span class="milestone__time">14:32</span>
-            </div>
-            <div class="milestone milestone--complete">
-              <span class="milestone__icon milestone__icon--check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </span>
-              <span class="milestone__label">Bag Unloading</span>
-              <span class="milestone__time"></span>
-            </div>
-            <div class="milestone milestone--progress">
-              <span class="milestone__icon milestone__icon--progress">
-                <div class="milestone__progress-ring"></div>
-              </span>
-              <span class="milestone__label">Cleaning</span>
-              <span class="milestone__bar">
-                <span class="milestone__bar-fill"></span>
-              </span>
-            </div>
-            <div class="milestone milestone--pending">
-              <span class="milestone__icon milestone__icon--hourglass">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M6 2v6l4 4-4 4v6h12v-6l-4-4 4-4V2H6z"/>
-                </svg>
-              </span>
-              <span class="milestone__label">Boarding</span>
-              <span class="milestone__time"></span>
+          <div class="mockup-card__milestones-wrapper">
+            <div class="mockup-card__milestones mockup-card__milestones--scroll">
+              <div class="milestone milestone--complete">
+                <span class="milestone__icon milestone__icon--check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span class="milestone__label">Block On</span>
+                <span class="milestone__time">14:32</span>
+              </div>
+              <div class="milestone milestone--complete">
+                <span class="milestone__icon milestone__icon--check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span class="milestone__label">Bag Unloading</span>
+                <span class="milestone__time">14:41</span>
+              </div>
+              <div class="milestone milestone--progress">
+                <span class="milestone__icon milestone__icon--progress">
+                  <div class="milestone__progress-ring"></div>
+                </span>
+                <span class="milestone__label">Cleaning</span>
+                <span class="milestone__bar">
+                  <span class="milestone__bar-fill"></span>
+                </span>
+              </div>
+              <div class="milestone milestone--pending">
+                <span class="milestone__icon milestone__icon--hourglass milestone__icon--hourglass-pulse">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2v6l4 4-4 4v6h12v-6l-4-4 4-4V2H6z"/>
+                  </svg>
+                </span>
+                <span class="milestone__label">Boarding</span>
+                <span class="milestone__time"></span>
+              </div>
+              <!-- Ghost milestone (skeleton hint) -->
+              <div class="milestone milestone--ghost" aria-hidden="true">
+                <span class="milestone__icon"><span class="milestone__skeleton-dot"></span></span>
+                <span class="milestone__skeleton-bar"></span>
+              </div>
             </div>
           </div>
+          <p class="mockup-card__disclaimer">*Demo data</p>
         </div>
       </div>
     </div>
@@ -214,7 +222,7 @@
           </div>
           <h3 class="feature-card__title">Station-specific rules</h3>
           <p class="feature-card__desc">
-            Adaptable to each station's local procedures and operational constraints.
+            Adaptable to each station's local procedures and constraints.
           </p>
         </article>
 
@@ -227,9 +235,9 @@
               <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">Decision support for operations</h3>
+          <h3 class="feature-card__title">Decision support</h3>
           <p class="feature-card__desc">
-            Calculated operational signals to help ground teams take the right decisions and complete mandatory documentation with confidence.
+            Operational signals to help teams take the right call at the right time.
           </p>
         </article>
 
@@ -261,7 +269,7 @@
           </div>
           <h3 class="feature-card__title">Shared operational status</h3>
           <p class="feature-card__desc">
-            A single, shared view of the live turnaround status for all stakeholders.
+            One shared view of the live turnaround status for all stakeholders.
           </p>
         </article>
       </div>
@@ -283,49 +291,47 @@
             </div>
             <div class="product__screen-body">
               <div class="product__screen-row">
-                <div class="product__screen-card product__screen-card--highlight">
-                  <div class="product__screen-label">Aircraft on ground</div>
-                  <div class="product__screen-value">3</div>
-                </div>
                 <div class="product__screen-card">
-                  <div class="product__screen-label">Average departure delay</div>
-                  <div class="product__screen-value product__screen-value--warning">
-                    +20 min
-                    <span class="delay-indicator">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="9"/>
-                        <polyline points="12 6 12 12 16 14"/>
-                        <path d="M19 19l2 2"/>
-                      </svg>
-                    </span>
+                  <div class="product__screen-value">
+                    <svg class="product__screen-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                    </svg>
+                    3
                   </div>
+                  <div class="product__screen-label">Aircraft on ground</div>
                 </div>
                 <div class="product__screen-card">
-                  <div class="product__screen-label">Operations alerts</div>
-                  <div class="product__screen-value product__screen-value--alert">2</div>
+                  <div class="product__screen-value product__screen-value--warning">
+                    <svg class="product__screen-value-icon product__screen-value-icon--warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    20:00
+                  </div>
+                  <div class="product__screen-label">Avg. departure delay</div>
                 </div>
-              </div>
-              <div class="product__screen-row">
-                <div class="product__screen-card product__screen-card--secondary">
-                  <div class="product__screen-label">Teams on ground <span class="live-dot live-dot--small"></span></div>
-                  <div class="product__screen-value">25</div>
+                <div class="product__screen-card">
+                  <div class="product__screen-value product__screen-value--alert">
+                    <svg class="product__screen-value-icon product__screen-value-icon--alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                      <line x1="12" y1="9" x2="12" y2="13"/>
+                      <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    2
+                  </div>
+                  <div class="product__screen-label">Operations alerts</div>
                 </div>
               </div>
               <div class="product__screen-activity">
                 <div class="product__screen-activity-header">Latest updates</div>
-                <div class="product__screen-activity-row">
-                  <span class="product__screen-activity-dot product__screen-activity-dot--green"></span>
-                  <span class="product__screen-activity-text">SKY 452 — Block ON</span>
-                </div>
-                <div class="product__screen-activity-row">
-                  <span class="product__screen-activity-dot product__screen-activity-dot--blue"></span>
-                  <span class="product__screen-activity-text">FR 118 — Boarding started</span>
-                </div>
-                <div class="product__screen-activity-row">
-                  <span class="product__screen-activity-dot product__screen-activity-dot--orange"></span>
-                  <span class="product__screen-activity-text">EZY 771 — Awaiting bags</span>
+                <div class="product__screen-activity-wrapper" id="activity-feed-wrapper">
+                  <div class="product__screen-activity-list" id="activity-feed">
+                  </div>
                 </div>
               </div>
+            </div>
+            <div class="product__screen-footer">
+              <span class="product__screen-footer-count">25</span> teams on ground <span class="status-dot-live"></span>
             </div>
           </div>
         </div>
