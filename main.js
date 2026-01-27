@@ -77,6 +77,213 @@
   revealOnScroll(); // Initial check
 
   // ============================================
+  // Milestone Animation (turnaround card)
+  // ============================================
+  var msContainer = document.getElementById('milestones-container');
+
+  if (msContainer) {
+    var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+    var HOURGLASS_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v6l4 4-4 4v6h12v-6l-4-4 4-4V2H6z"/></svg>';
+
+    function makeMilestone(type, label, rightContent) {
+      var el = document.createElement('div');
+      el.className = 'milestone milestone--' + type;
+
+      var icon = document.createElement('span');
+      if (type === 'complete') {
+        icon.className = 'milestone__icon milestone__icon--check';
+        icon.innerHTML = CHECK_SVG;
+      } else if (type === 'progress') {
+        icon.className = 'milestone__icon milestone__icon--progress';
+        icon.innerHTML = '<div class="milestone__progress-ring"></div>';
+      } else if (type === 'pending') {
+        icon.className = 'milestone__icon milestone__icon--hourglass milestone__icon--hourglass-pulse';
+        icon.innerHTML = HOURGLASS_SVG;
+      }
+
+      var lbl = document.createElement('span');
+      lbl.className = 'milestone__label';
+      lbl.textContent = label;
+
+      el.appendChild(icon);
+      el.appendChild(lbl);
+
+      if (rightContent === 'bar') {
+        var bar = document.createElement('span');
+        bar.className = 'milestone__bar';
+        bar.innerHTML = '<span class="milestone__bar-fill" style="width:0%"></span>';
+        el.appendChild(bar);
+      } else if (rightContent) {
+        var time = document.createElement('span');
+        time.className = 'milestone__time';
+        time.textContent = rightContent;
+        el.appendChild(time);
+      } else {
+        var empty = document.createElement('span');
+        empty.className = 'milestone__time';
+        el.appendChild(empty);
+      }
+
+      return el;
+    }
+
+    var msWrapper = msContainer.parentElement;
+    var wrapperHeightLocked = false;
+
+    function runMilestoneAnimation() {
+      msContainer.innerHTML = '';
+      msContainer.style.position = 'relative';
+
+      // Initial: Block On ✅, Bag Unloading ✅, PAX (progress), Cleaning (pending)
+      var blockOn = makeMilestone('complete', 'Block On', '14:32');
+      var bagUnload = makeMilestone('complete', 'Bag Unloading', '14:41');
+      var pax = makeMilestone('progress', 'PAX Disembarking', 'bar');
+      var cleaning = makeMilestone('pending', 'Cleaning', '');
+
+      msContainer.appendChild(blockOn);
+      msContainer.appendChild(bagUnload);
+      msContainer.appendChild(pax);
+      msContainer.appendChild(cleaning);
+
+      // Lock wrapper height on first run to prevent card resize
+      if (!wrapperHeightLocked) {
+        requestAnimationFrame(function() {
+          msWrapper.style.height = msWrapper.offsetHeight + 'px';
+          wrapperHeightLocked = true;
+        });
+      }
+
+      // PAX bar fills 0→90% in 2.5s (faster)
+      var paxFill = pax.querySelector('.milestone__bar-fill');
+      paxFill.style.transition = 'width 2.5s cubic-bezier(0.25,0.1,0.25,1)';
+      setTimeout(function() { paxFill.style.width = '90%'; }, 50);
+
+      // 3s: PAX bar → 100% (stays orange)
+      setTimeout(function() {
+        paxFill.style.transition = 'width 1s cubic-bezier(0.25,0.1,0.25,1)';
+        paxFill.style.width = '100%';
+      }, 3000);
+
+      // 4.2s: bar turns green, then swap to complete
+      setTimeout(function() {
+        paxFill.style.transition = 'background 0.5s ease';
+        paxFill.style.background = '#4ADE80';
+      }, 4200);
+
+      setTimeout(function() {
+        pax.className = 'milestone milestone--complete';
+        var paxIcon = pax.querySelector('.milestone__icon');
+        paxIcon.className = 'milestone__icon milestone__icon--check';
+        paxIcon.innerHTML = CHECK_SVG;
+        var bar = pax.querySelector('.milestone__bar');
+        if (bar) {
+          var timeEl = document.createElement('span');
+          timeEl.className = 'milestone__time';
+          timeEl.textContent = '14:48';
+          bar.replaceWith(timeEl);
+        }
+      }, 4800);
+
+      // 5.5s: Step B/C/D — PAX slides up + fades, Cleaning & Boarding move up together
+      setTimeout(function() {
+        // Measure row height for the slide
+        var rowH = pax.offsetHeight + parseInt(getComputedStyle(msContainer).gap || '8');
+
+        // PAX: slide up behind Bag Unloading and fade out
+        pax.style.transition = 'transform 1s cubic-bezier(0.25,0.1,0.25,1), opacity 0.8s ease';
+        pax.style.transform = 'translateY(-' + rowH + 'px)';
+        pax.style.opacity = '0';
+        pax.style.zIndex = '0';
+        // Ensure Bag Unloading is above PAX visually
+        bagUnload.style.position = 'relative';
+        bagUnload.style.zIndex = '1';
+
+        // Cleaning slides up by one row height
+        cleaning.style.transition = 'transform 1s cubic-bezier(0.25,0.1,0.25,1)';
+        cleaning.style.transform = 'translateY(-' + rowH + 'px)';
+
+        // Prepare Boarding: insert below cleaning, start hidden below
+        var boarding = makeMilestone('pending', 'Boarding', '');
+        boarding.style.opacity = '0';
+        boarding.style.transform = 'translateY(8px)';
+        msContainer.appendChild(boarding);
+
+        // Boarding slides up and fades in (synced with the upward motion)
+        setTimeout(function() {
+          boarding.style.transition = 'transform 0.9s cubic-bezier(0.25,0.1,0.25,1), opacity 0.8s ease';
+          boarding.style.transform = 'translateY(-' + rowH + 'px)';
+          boarding.style.opacity = '1';
+        }, 150);
+
+        // After slide completes: rebuild DOM cleanly (no transforms)
+        setTimeout(function() {
+          msContainer.innerHTML = '';
+          var b1 = makeMilestone('complete', 'Block On', '14:32');
+          var b2 = makeMilestone('complete', 'Bag Unloading', '14:41');
+
+          // Cleaning: start as pending, then gradually transition to progress
+          var c2 = makeMilestone('pending', 'Cleaning', '');
+          var bo2 = makeMilestone('pending', 'Boarding', '');
+
+          msContainer.appendChild(b1);
+          msContainer.appendChild(b2);
+          msContainer.appendChild(c2);
+          msContainer.appendChild(bo2);
+
+          // Smooth crossfade: pending → progress over 0.8s
+          setTimeout(function() {
+            c2.style.transition = 'opacity 0.4s ease';
+            c2.style.opacity = '0.4';
+
+            setTimeout(function() {
+              // Swap to progress state
+              c2.className = 'milestone milestone--progress';
+              var icon = c2.querySelector('.milestone__icon');
+              icon.className = 'milestone__icon milestone__icon--progress';
+              icon.innerHTML = '<div class="milestone__progress-ring"></div>';
+
+              // Replace time span with bar
+              var timeSpan = c2.querySelector('.milestone__time');
+              if (timeSpan) {
+                var bar = document.createElement('span');
+                bar.className = 'milestone__bar';
+                bar.innerHTML = '<span class="milestone__bar-fill" style="width:0%"></span>';
+                timeSpan.replaceWith(bar);
+              }
+
+              // Fade back in
+              c2.style.opacity = '1';
+
+              // Start bar filling
+              setTimeout(function() {
+                var cleanFill = c2.querySelector('.milestone__bar-fill');
+                if (cleanFill) {
+                  cleanFill.style.transition = 'width 4s cubic-bezier(0.25,0.1,0.25,1)';
+                  cleanFill.style.width = '55%';
+                }
+              }, 200);
+            }, 450);
+          }, 600);
+        }, 1100);
+      }, 5500);
+
+      // 13s: fade out and loop
+      setTimeout(function() {
+        var children = msContainer.children;
+        for (var i = 0; i < children.length; i++) {
+          children[i].style.transition = 'opacity 0.8s ease';
+          children[i].style.opacity = '0';
+        }
+        setTimeout(function() {
+          runMilestoneAnimation();
+        }, 1000);
+      }, 13000);
+    }
+
+    runMilestoneAnimation();
+  }
+
+  // ============================================
   // Smooth Scroll for Anchor Links
   // ============================================
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {

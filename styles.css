@@ -635,17 +635,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   gap: var(--space-sm);
 }
 
-/* Whole-list scroll animation */
-.mockup-card__milestones--scroll {
-  animation: milestones-scroll-up 8s ease-in-out infinite;
-}
-
-@keyframes milestones-scroll-up {
-  0%, 65% { transform: translateY(0); }
-  80% { transform: translateY(-12px); }
-  95%, 100% { transform: translateY(0); }
-}
-
 .milestone {
   display: flex;
   align-items: center;
@@ -746,6 +735,33 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
 @keyframes hourglass-glow {
   0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 0px transparent); }
   50% { opacity: 1; filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.4)); }
+}
+
+/* Milestone animation helpers */
+.milestone--bar-complete .milestone__bar-fill {
+  width: 100% !important;
+  background: #4ADE80;
+  transition: width 2s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.6s ease;
+}
+
+.milestone--bar-filling .milestone__bar-fill {
+  transition: width 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.milestone--slide-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.milestone--slide-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.milestone--fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 /* Ghost skeleton milestone */
