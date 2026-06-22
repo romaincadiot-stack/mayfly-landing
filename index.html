@@ -6,120 +6,79 @@
   <meta name="description" content="MAYFLY - Ground handling coordination for small & mid airports. Manage aircraft turnarounds, centralize milestones, and reduce radio/phone calls with one unified platform.">
   <meta name="keywords" content="ground handling, aircraft turnaround, airport operations, aviation software, B2B SaaS">
   <meta name="author" content="MAYFLY">
-
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="MAYFLY - Turnaround operations, finally in one place">
   <meta property="og:description" content="B2B SaaS helping ground handlers manage aircraft turnarounds, centralize milestones, and reduce radio/phone calls.">
-
-  <!-- Theme Color -->
   <meta name="theme-color" content="#0D1117">
-
   <title>MAYFLY - Turnaround operations, finally in one place</title>
-
-  <!-- Google Fonts with fallback -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Favicon (using PNG logo) -->
   <link rel="icon" type="image/png" href="assets/logo/Design sans titre (15).png">
 </head>
 <body>
 
-  <!-- ============================================
-       Header / Navigation
-       ============================================ -->
   <header class="header">
     <nav class="nav container">
       <div class="nav__logo" aria-hidden="true">
         <img src="assets/logo/MFLOGO.png" alt="" width="160" height="56">
       </div>
-
       <ul class="nav__links" id="nav-links">
         <li><a href="#features" class="nav__link">Features</a></li>
         <li><a href="#product" class="nav__link">Product</a></li>
+        <li><a href="#roles" class="nav__link">Roles</a></li>
         <li><a href="#security" class="nav__link">Security</a></li>
         <li><a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="nav__link">Contact</a></li>
         <li class="nav__cta">
-          <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Request early access</a>
+          <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--nav">Request early access</a>
         </li>
       </ul>
-
       <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
-  <!-- ============================================
-       Hero Section
-       ============================================ -->
+  <!-- Hero -->
   <section class="hero" id="hero">
     <div class="hero__bg">
-      <!-- Floating particles -->
       <div class="hero__particles">
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
-        <div class="hero__particle"></div>
+        <div class="hero__particle"></div><div class="hero__particle"></div><div class="hero__particle"></div><div class="hero__particle"></div><div class="hero__particle"></div>
       </div>
-      <!-- Runway decoration -->
       <div class="hero__runway"></div>
     </div>
-
     <div class="container hero__content">
       <div class="hero__text">
-        <div class="hero__badge">
-          Coming Soon
-        </div>
-        <h1 class="hero__title">
-          Ground Handling operations,<br>
-          <span class="text-gradient">finally in one place.</span>
-        </h1>
-        <p class="hero__subtitle">
-          MAYFLY centralizes operational data into a single source of truth for airport operations, helping teams stay aligned in real time.
-        </p>
+        <div class="hero__badge">Coming Soon</div>
+        <h1 class="hero__title">Ground Handling operations,<br><span class="text-gradient">finally in one place.</span></h1>
+        <p class="hero__subtitle">MAYFLY centralizes operational data into a single source of truth for airport operations, helping teams stay aligned in real time.</p>
         <div class="hero__actions">
-          <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--large">
-            Request early access
-          </a>
+          <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--large">Request early access</a>
+          <a href="#features" class="hero__see-more">See what it does &rarr;</a>
         </div>
       </div>
-
       <div class="hero__mockup">
         <div class="mockup-card">
           <div class="mockup-card__header">
             <span class="mockup-card__title">Live Turnaround Status <span class="live-dot"></span></span>
             <span class="mockup-card__status">In Progress</span>
           </div>
-
           <div class="mockup-card__flight">
             <div class="mockup-card__flight-icon mockup-card__flight-icon--img">
               <img src="assets/logo/BA.png" alt="British Airways" width="32" height="32">
             </div>
             <div class="mockup-card__flight-info">
-              <h4>BA 8173 • BRS → LYS</h4>
-              <p>A320 • Gate C14</p>
+              <h4>BA 8173 &bull; BRS &rarr; LYS</h4>
+              <p>A320 &bull; Gate C14</p>
             </div>
           </div>
-
           <div class="mockup-card__timing">
-            <span>STD 15:00</span>
-            <span>•</span>
-            <span>ETD 15:18</span>
-            <span class="mockup-card__delay">(+18 min)</span>
+            <span>SOBT 15:00</span><span>&bull;</span><span>EOBT 15:18</span>
+            <span class="mockup-card__delay">(+00:18)</span>
           </div>
-
           <div class="mockup-card__milestones-wrapper">
-            <div class="mockup-card__milestones" id="milestones-container">
-            </div>
+            <div class="mockup-card__milestones" id="milestones-container"></div>
           </div>
           <p class="mockup-card__disclaimer">*Demo data</p>
         </div>
@@ -127,298 +86,430 @@
     </div>
   </section>
 
-  <!-- ============================================
-       Features Section
-       ============================================ -->
-  <section class="features section" id="features">
+  <!-- Positioning Band -->
+  <section class="positioning section">
     <div class="container">
-      <header class="features__header reveal">
-        <h2>Everything you need for<br><span class="text-gradient">seamless turnarounds</span></h2>
-        <p>One aircraft. One turnaround. Zero noise. Replace scattered communications with a single source of truth.</p>
-      </header>
-
-      <div class="features__grid reveal-stagger">
-        <!-- Feature 1: Real-time milestones -->
-        <article class="feature-card">
-          <div class="feature-card__icon">
-            <!-- Clock/Timer icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
+      <div class="positioning__content reveal">
+        <div class="positioning__left">
+          <span class="positioning__label">What is a transit?</span>
+          <p class="positioning__intro">The time an aircraft spends on the ground, from arrival to departure. That's the unit Mayfly is built around.</p>
+        </div>
+        <div class="positioning__right">
+          <div class="positioning__point">
+            <span class="positioning__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <p>Every role sees the same data, at the same moment, on any device.</p>
           </div>
-          <h3 class="feature-card__title">Real-time milestones</h3>
-          <p class="feature-card__desc">
-            Clear, shared visibility on turnaround progress.
-          </p>
-        </article>
-
-        <!-- Feature 2: Supervisor dashboard -->
-        <article class="feature-card">
-          <div class="feature-card__icon">
-            <!-- Dashboard/Layout icon -->
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="7" height="9" rx="1"/>
-              <rect x="14" y="3" width="7" height="5" rx="1"/>
-              <rect x="14" y="12" width="7" height="9" rx="1"/>
-              <rect x="3" y="16" width="7" height="5" rx="1"/>
-            </svg>
+          <div class="positioning__point">
+            <span class="positioning__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <p>Dispatcher, pax agent, ramp agent, supervisor: one shared picture.</p>
           </div>
-          <h3 class="feature-card__title">Supervisor dashboard</h3>
-          <p class="feature-card__desc">
-            A single operational view to monitor flights and teams.
-          </p>
-        </article>
-
-        <!-- Feature 3: Station-specific rules -->
-        <article class="feature-card">
-          <div class="feature-card__icon">
-            <!-- Settings/Cog icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-            </svg>
+          <div class="positioning__point">
+            <span class="positioning__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>
+            <p>From touchdown to pushback, everything orchestrated in one place.</p>
           </div>
-          <h3 class="feature-card__title">Station-specific rules</h3>
-          <p class="feature-card__desc">
-            Adaptable to each station's local procedures and constraints.
-          </p>
-        </article>
-
-        <!-- Feature 4: Decision support -->
-        <article class="feature-card">
-          <div class="feature-card__icon">
-            <!-- Compass/Decision icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10"/>
-              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-            </svg>
-          </div>
-          <h3 class="feature-card__title">Decision support</h3>
-          <p class="feature-card__desc">
-            Operational signals to help teams take the right call at the right time.
-          </p>
-        </article>
-
-        <!-- Feature 5: Made for ground operations -->
-        <article class="feature-card">
-          <div class="feature-card__icon">
-            <!-- Plane/Ground icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-            </svg>
-          </div>
-          <h3 class="feature-card__title">Made for ground operations</h3>
-          <p class="feature-card__desc">
-            Built around real turnaround constraints, not generic workflows.
-          </p>
-        </article>
-
-        <!-- Feature 6: Shared operational status -->
-        <article class="feature-card">
-          <div class="feature-card__icon">
-            <!-- Share/Network icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="18" cy="5" r="3"/>
-              <circle cx="6" cy="12" r="3"/>
-              <circle cx="18" cy="19" r="3"/>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-            </svg>
-          </div>
-          <h3 class="feature-card__title">Shared operational status</h3>
-          <p class="feature-card__desc">
-            One shared view of the live turnaround status for all stakeholders.
-          </p>
-        </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       Product Preview Section
-       ============================================ -->
-  <section class="product section" id="product">
+  <!-- Features -->
+  <section class="features-detailed section" id="features">
     <div class="container">
-      <div class="product__content">
-        <div class="product__visual reveal">
-          <div class="product__screen">
-            <div class="product__screen-header">
-              <span class="product__screen-dot"></span>
-              <span class="product__screen-dot"></span>
-              <span class="product__screen-dot"></span>
-            </div>
-            <div class="product__screen-body">
-              <div class="product__screen-row">
-                <div class="product__screen-card">
-                  <div class="product__screen-value">
-                    <svg class="product__screen-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-                    </svg>
-                    3
-                  </div>
-                  <div class="product__screen-label">Aircraft on ground</div>
-                </div>
-                <div class="product__screen-card">
-                  <div class="product__screen-value product__screen-value--warning">
-                    <svg class="product__screen-value-icon product__screen-value-icon--warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    20:00
-                  </div>
-                  <div class="product__screen-label">Avg. departure delay</div>
-                </div>
-                <div class="product__screen-card">
-                  <div class="product__screen-value product__screen-value--alert">
-                    <svg class="product__screen-value-icon product__screen-value-icon--alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                      <line x1="12" y1="9" x2="12" y2="13"/>
-                      <line x1="12" y1="17" x2="12.01" y2="17"/>
-                    </svg>
-                    2
-                  </div>
-                  <div class="product__screen-label">Operations alerts</div>
-                </div>
-              </div>
-              <div class="product__screen-activity">
-                <div class="product__screen-activity-header">Latest updates</div>
-                <div class="product__screen-activity-wrapper" id="activity-feed-wrapper">
-                  <div class="product__screen-activity-list" id="activity-feed">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="product__screen-footer">
-              <span class="product__screen-footer-count">25</span> teams on ground <span class="status-dot-live"></span>
-            </div>
-          </div>
-        </div>
+      <div class="features-detailed__section-label reveal">
+        <span>During the turnaround</span>
+        <span class="features-detailed__line"></span>
+      </div>
 
-        <div class="product__info reveal">
-          <h2>Built for the<br><span class="text-gradient">reality of the ramp</span></h2>
-          <p>
-            MAYFLY is built with a clear understanding of how fast and demanding ground operations really are.
-          </p>
-          <ul class="product__list">
-            <li>
-              <span class="product__list-icon">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Designed for high-tempo turnaround environments</span>
-            </li>
-            <li>
-              <span class="product__list-icon">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Clear operational visibility without complexity</span>
-            </li>
-            <li>
-              <span class="product__list-icon">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Easy to adopt across teams</span>
-            </li>
+      <!-- 01: Real-time flight view -->
+      <div class="feature-detail reveal" id="feature-flights">
+        <div class="feature-detail__text">
+          <span class="feature-detail__number">01 / Real-time flight view</span>
+          <h3>See every flight, in the state it's really in</h3>
+          <p>Flights are organised by what they need right now: inbound, on the ground, or departed. Each one shows its flight number, airline, aircraft, route, scheduled and estimated times, and stand. Status moves on its own as the turnaround progresses.</p>
+          <ul class="feature-detail__bullets">
+            <li>Opens straight onto active flights, falling back to arrivals when the apron is quiet</li>
+            <li>Refreshes continuously with a live connection indicator you can trust</li>
           </ul>
         </div>
+        <div class="feature-detail__visual">
+          <div class="feature-detail__card" id="flight-view-card">
+            <div class="feature-detail__tabs" id="flight-tabs">
+              <span class="feature-detail__tab feature-detail__tab--active" data-tab="onground">On ground &bull; 3</span>
+              <span class="feature-detail__tab" data-tab="arrivals">Arrivals &bull; 3</span>
+              <span class="feature-detail__tab" data-tab="departed">Departed &bull; 3</span>
+              <span class="feature-detail__tab-live"><span class="live-dot-small"></span> Live</span>
+            </div>
+            <div class="feature-detail__flight-list" id="flight-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02: Milestones A-CDM -->
+      <div class="feature-detail feature-detail--reverse reveal" id="feature-milestones">
+        <div class="feature-detail__text">
+          <span class="feature-detail__number">02 / Operational milestones (A-CDM)</span>
+          <h3>One timestamp updates everyone</h3>
+          <p>Agents log the key moments of the turnaround: landing, block on, unloading, cleaning, boarding, doors, loading, block off, take-off. Correct a mistaken entry in a tap. The rest follows on its own.</p>
+          <ul class="feature-detail__bullets">
+            <li>Estimated departure recomputed from the real block-on and each airline's minimum ground time</li>
+            <li>Flight advances state automatically and pushes the change to everyone on the team</li>
+          </ul>
+        </div>
+        <div class="feature-detail__visual">
+          <div class="feature-detail__card">
+            <div class="feature-detail__card-header-row">
+              <span class="feature-detail__card-label">Turnaround milestones</span>
+              <span class="feature-detail__etd-badge">EOBT 15:18 <span class="text-danger">+18</span></span>
+            </div>
+            <div class="feature-detail__timeline">
+              <div class="feature-detail__timeline-line"></div>
+              <div class="feature-detail__timeline-item feature-detail__timeline-item--done">
+                <span class="feature-detail__timeline-dot feature-detail__timeline-dot--done"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                <span class="feature-detail__timeline-label">LANDING</span>
+                <span class="feature-detail__timeline-time">14:24</span>
+              </div>
+              <div class="feature-detail__timeline-item feature-detail__timeline-item--done">
+                <span class="feature-detail__timeline-dot feature-detail__timeline-dot--done"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                <span class="feature-detail__timeline-label">BLOCK ON</span>
+                <span class="feature-detail__timeline-time">14:32</span>
+              </div>
+              <div class="feature-detail__timeline-item feature-detail__timeline-item--active">
+                <span class="feature-detail__timeline-dot feature-detail__timeline-dot--active"></span>
+                <span class="feature-detail__timeline-label feature-detail__timeline-label--active">DISEMBARKING START</span>
+                <span class="feature-detail__timeline-time feature-detail__timeline-time--active">now</span>
+              </div>
+              <div class="feature-detail__timeline-item feature-detail__timeline-item--pending">
+                <span class="feature-detail__timeline-dot feature-detail__timeline-dot--pending"></span>
+                <span class="feature-detail__timeline-label">DISEMBARKING END</span>
+              </div>
+              <div class="feature-detail__timeline-item feature-detail__timeline-item--pending">
+                <span class="feature-detail__timeline-dot feature-detail__timeline-dot--pending"></span>
+                <span class="feature-detail__timeline-label">CLEANING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03: Team coordination -->
+      <div class="feature-detail reveal" id="feature-team">
+        <div class="feature-detail__text">
+          <span class="feature-detail__number">03 / Team coordination</span>
+          <h3>A crew on every flight, no phone tag</h3>
+          <p>Supervisors assign a dispatcher, a pax agent, a ramp agent and an operations agent to each transit. Agents only see the flights that are theirs; supervisors see the whole station.</p>
+          <ul class="feature-detail__bullets">
+            <li>A dedicated message thread per flight, visible only to its crew and supervisors</li>
+            <li>Flight notes to record a delay, a special operation or an airline instruction</li>
+          </ul>
+        </div>
+        <div class="feature-detail__visual">
+          <div class="feature-detail__card" id="chat-card">
+            <div class="feature-detail__team-badges">
+              <span class="feature-detail__team-badge feature-detail__team-badge--dispatch">Dispatch &bull; M. Roux</span>
+              <span class="feature-detail__team-badge feature-detail__team-badge--pax">Pax &bull; L. Diaz</span>
+              <span class="feature-detail__team-badge feature-detail__team-badge--ramp">Ramp &bull; K. Owusu</span>
+              <span class="feature-detail__team-badge feature-detail__team-badge--ops">Ops &bull; S. Berg</span>
+            </div>
+            <div class="feature-detail__chat" id="chat-messages">
+              <!-- Messages injected by JS with staggered animation -->
+            </div>
+            <div class="feature-detail__chat-input" id="chat-input-area">
+              <input type="text" id="chat-input" placeholder="Message the crew as Supervisor..." maxlength="200">
+              <button class="feature-detail__chat-send" id="chat-send-btn" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04: Passenger operations -->
+      <div class="feature-detail feature-detail--reverse reveal" id="feature-pax">
+        <div class="feature-detail__text">
+          <span class="feature-detail__number">04 / Passenger operations</span>
+          <h3>From check-in counts to the final figures</h3>
+          <p>The pax agent enters booked, checked-in and bag counts, confirms the high-load estimate once check-in closes, and locks the final figures before departure.</p>
+          <ul class="feature-detail__bullets">
+            <li>Track wheelchairs, unaccompanied minors, reduced mobility, animals and medical needs in one place</li>
+            <li>Load recommendations re-run the moment a count changes, with a live boarding countdown</li>
+          </ul>
+        </div>
+        <div class="feature-detail__visual">
+          <div class="feature-detail__card" id="pax-card">
+            <div class="feature-detail__pax-stats">
+              <div class="feature-detail__pax-stat">
+                <div class="feature-detail__pax-stat-label">Booked</div>
+                <div class="feature-detail__pax-stat-value-row"><span>168</span></div>
+              </div>
+              <div class="feature-detail__pax-stat">
+                <div class="feature-detail__pax-stat-label">Checked in</div>
+                <div class="feature-detail__pax-stat-value-row">
+                  <span id="pax-checkedin">154</span>
+                  <span class="feature-detail__pax-inline-delta" id="pax-delta-pax" style="display:none"><span class="text-danger">-2</span></span>
+                </div>
+              </div>
+              <div class="feature-detail__pax-stat">
+                <div class="feature-detail__pax-stat-label">Bags</div>
+                <div class="feature-detail__pax-stat-value-row">
+                  <span id="pax-bags">131</span>
+                  <span class="feature-detail__pax-inline-delta" id="pax-delta-bags" style="display:none"><span class="text-danger">-3</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-detail__pax-status-row">
+              <span class="feature-detail__pax-badge feature-detail__pax-badge--confirmed">HLE confirmed</span>
+              <span class="feature-detail__pax-badge feature-detail__pax-badge--pending feature-detail__pax-badge--clickable" id="pax-final-btn" role="button" tabindex="0">FINAL pending</span>
+            </div>
+            <div class="feature-detail__ssr-label">Special services (SSR)</div>
+            <div class="feature-detail__ssr-tags">
+              <span class="feature-detail__ssr-tag">2 &times; WCHC</span>
+              <span class="feature-detail__ssr-tag">1 &times; UM</span>
+            </div>
+            <div class="feature-detail__boarding-banner" id="boarding-banner">
+              <div class="feature-detail__boarding-banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="feature-detail__boarding-banner-content">
+                <span class="feature-detail__boarding-banner-label" id="boarding-label">Estimated boarding in</span>
+                <span class="feature-detail__boarding-banner-value" id="boarding-value">08:35</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05: Load distribution -->
+      <div class="feature-detail reveal" id="feature-loading">
+        <div class="feature-detail__text">
+          <span class="feature-detail__number">05 / Load distribution</span>
+          <h3>From recommendation to loaded, in three steps</h3>
+          <p>The system proposes a hold-by-hold distribution based on passenger and bag counts, following each airline's own distribution rules. The ramp agent adjusts it, then confirms what was actually loaded.</p>
+          <div class="feature-detail__steps">
+            <div class="feature-detail__step">
+              <span class="feature-detail__step-id">V1</span>
+              <span class="feature-detail__step-name">Instruction</span>
+              <span class="feature-detail__step-desc">Recommended split per airline rules</span>
+            </div>
+            <div class="feature-detail__step">
+              <span class="feature-detail__step-id">V2</span>
+              <span class="feature-detail__step-name">Check-in</span>
+              <span class="feature-detail__step-desc">Real quantities at the counter</span>
+            </div>
+            <div class="feature-detail__step">
+              <span class="feature-detail__step-id">V3</span>
+              <span class="feature-detail__step-name">Loaded</span>
+              <span class="feature-detail__step-desc">What actually went on board</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-detail__visual">
+          <div class="feature-detail__card">
+            <div class="feature-detail__load-progress">
+              <div class="feature-detail__load-step feature-detail__load-step--done">
+                <span class="feature-detail__load-dot feature-detail__load-dot--done">V1</span>
+                <span>Instruction</span>
+              </div>
+              <span class="feature-detail__load-connector feature-detail__load-connector--done"></span>
+              <div class="feature-detail__load-step feature-detail__load-step--active">
+                <span class="feature-detail__load-dot feature-detail__load-dot--active">V2</span>
+                <span>Check-in</span>
+              </div>
+              <span class="feature-detail__load-connector"></span>
+              <div class="feature-detail__load-step feature-detail__load-step--pending">
+                <span class="feature-detail__load-dot feature-detail__load-dot--pending">V3</span>
+                <span>Loaded</span>
+              </div>
+            </div>
+            <div class="feature-detail__hold-list">
+              <div class="feature-detail__hold">
+                <div class="feature-detail__hold-header">
+                  <span>Hold 1 Fwd</span>
+                  <span class="feature-detail__hold-weight">56 pcs &bull; 1 232 kg</span>
+                </div>
+                <div class="feature-detail__hold-bar"><div class="feature-detail__hold-bar-fill" style="width: 68%"></div></div>
+              </div>
+              <div class="feature-detail__hold">
+                <div class="feature-detail__hold-header">
+                  <span>Hold 3 Aft</span>
+                  <span class="feature-detail__hold-weight">44 pcs &bull; 968 kg</span>
+                </div>
+                <div class="feature-detail__hold-bar"><div class="feature-detail__hold-bar-fill" style="width: 52%"></div></div>
+              </div>
+              <div class="feature-detail__hold">
+                <div class="feature-detail__hold-header">
+                  <span>Hold 4 Bulk</span>
+                  <span class="feature-detail__hold-weight">19 pcs &bull; 418 kg</span>
+                </div>
+                <div class="feature-detail__hold-bar"><div class="feature-detail__hold-bar-fill" style="width: 24%"></div></div>
+              </div>
+            </div>
+            <div class="feature-detail__loadsheet-available">
+              <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z" stroke="#F87171" stroke-width="1.5"/><path d="M14 2v6h6" stroke="#F87171" stroke-width="1.5"/><text x="12" y="17" text-anchor="middle" font-size="6" font-weight="700" fill="#F87171" font-family="Inter,sans-serif">PDF</text></svg>
+              Loadsheet available
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06: Stand management -->
+      <div class="feature-detail feature-detail--reverse reveal" id="feature-parking">
+        <div class="feature-detail__text">
+          <span class="feature-detail__number">06 / Stand management</span>
+          <h3>Right aircraft, right stand, right time</h3>
+          <p>A schedule view lays out every stand over time and flags conflicts before they bite. Assign by drag-and-drop, respect each stand's constraints, or ask for an automatic layout that makes the most of the apron.</p>
+          <ul class="feature-detail__bullets">
+            <li>Alerts for overlapping windows, wrong aircraft size, night restrictions</li>
+            <li>Automatic stand suggestion to optimize apron usage across the day</li>
+          </ul>
+        </div>
+        <div class="feature-detail__visual">
+          <div class="feature-detail__card" id="gantt-card">
+            <div class="feature-detail__card-header-row" style="margin-bottom: 14px">
+              <span class="feature-detail__card-label">Stand schedule</span>
+              <button class="feature-detail__suggest-btn" id="suggest-allocation-btn">
+                <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                Suggest allocation
+              </button>
+            </div>
+            <div class="feature-detail__gantt" id="gantt-chart">
+              <div class="feature-detail__gantt-row" data-row="10A">
+                <span class="feature-detail__gantt-label">10A</span>
+                <div class="feature-detail__gantt-track" id="track-10A"></div>
+              </div>
+              <div class="feature-detail__gantt-row" data-row="11A">
+                <span class="feature-detail__gantt-label">11A</span>
+                <div class="feature-detail__gantt-track" id="track-11A"></div>
+              </div>
+              <div class="feature-detail__gantt-row" data-row="12A">
+                <span class="feature-detail__gantt-label">12A</span>
+                <div class="feature-detail__gantt-track" id="track-12A"></div>
+              </div>
+            </div>
+            <div class="feature-detail__conflict-alert" id="gantt-alert">
+              <span class="feature-detail__conflict-dot"></span>
+              <span id="gantt-alert-text">1 conflict on stand 10A</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       Security Section
-       ============================================ -->
+  <!-- Capabilities carousel -->
+  <section class="capabilities section" id="product">
+    <div class="container">
+      <div class="capabilities__header reveal">
+        <span>Everything else the station runs on</span>
+        <span class="capabilities__line"></span>
+      </div>
+      <div class="capabilities__carousel-wrapper reveal">
+        <button class="capabilities__arrow capabilities__arrow--left" id="carousel-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="capabilities__arrow capabilities__arrow--right" id="carousel-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="capabilities__carousel" id="capabilities-carousel">
+          <article class="capability-card">
+            <div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <h4>Ground service requests</h4>
+            <p>Raise fuelling, cleaning, de-icing, water or other requests from the flight, set a priority, and the operations team accepts or declines in real time.</p>
+          </article>
+          <article class="capability-card">
+            <div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div>
+            <h4>Team planning</h4>
+            <p>A lane per agent shows their flights across the day, colour-coded by role, so supervisors can read workload at a glance and rebalance before anyone is overloaded.</p>
+          </article>
+          <article class="capability-card">
+            <div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M9 20l-5.5 2.5V6L9 3.5m0 16.5l6-2.5m-6 2.5V3.5m6 14l5.5 2.5V6L15 3.5m0 14V3.5m0 0L9 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <h4>Airport map</h4>
+            <p>See the airport layout with stands and live aircraft positions. Taxiways fade out as you zoom to keep the picture readable on a tablet in the field.</p>
+          </article>
+          <article class="capability-card">
+            <div class="capability-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <h4>IATA delay codes</h4>
+            <p>The full IATA delay-code reference, with operational descriptions and each airline's preferred set, on hand from any screen without leaving what you're doing.</p>
+          </article>
+          <article class="capability-card">
+            <div class="capability-card__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></div>
+            <h4>Multi-station</h4>
+            <p>Each airport is an isolated station with its own data, users and configuration. One platform runs many stations at once; platform admins see across all of them.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles -->
+  <section class="roles section" id="roles">
+    <div class="container">
+      <div class="roles__content reveal">
+        <div class="roles__intro">
+          <span class="roles__label">Access by role</span>
+          <h2>Everyone sees what they need, nothing more</h2>
+          <p>Roles scope what each person can see and do. Station admins manage users, airlines and airport configuration; platform admins oversee every station.</p>
+        </div>
+        <div class="roles__table">
+          <div class="roles__row"><div class="roles__role">Dispatcher</div><div class="roles__scope">Milestones, services, notes & messages on assigned flights</div></div>
+          <div class="roles__row"><div class="roles__role">Pax agent</div><div class="roles__scope">Passenger & bag data, SSR, boarding on assigned flights</div></div>
+          <div class="roles__row"><div class="roles__role">Ramp agent</div><div class="roles__scope">Hold loading, check-in & report figures on assigned flights</div></div>
+          <div class="roles__row"><div class="roles__role">Operations agent</div><div class="roles__scope">Service requests & assignments on assigned flights</div></div>
+          <div class="roles__row roles__row--highlight"><div class="roles__role">Supervisor</div><div class="roles__scope">Every flight in the station, plus team oversight</div></div>
+          <div class="roles__row roles__row--highlight"><div class="roles__role">Station & platform admin</div><div class="roles__scope">Users, airline & airport setup, multi-station and billing</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
   <section class="security section" id="security">
     <div class="container">
-      <div class="reveal">
-        <h2>Built for<br><span class="text-gradient">controlled operations</span></h2>
-      </div>
-
+      <div class="reveal"><h2>Built for<br><span class="text-gradient">controlled operations</span></h2></div>
       <div class="security__badges reveal-stagger">
         <div class="security__badge">
-          <div class="security__badge-icon">
-            <!-- Users/Roles icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <span class="security__badge-text">Role-based access</span>
-        </div>
-
-        <div class="security__badge">
-          <div class="security__badge-icon">
-            <!-- Shield/Isolation icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <span class="security__badge-text">Station-level isolation</span>
-        </div>
-
-        <div class="security__badge">
-          <div class="security__badge-icon">
-            <!-- Checkmark/Accountability icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-          </div>
-          <span class="security__badge-text">Clear accountability</span>
+          <div class="security__badge-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><span class="security__badge-title">Isolated stations</span><span class="security__badge-text">Data, users and configuration are separated per airport. A field team never sees another station's operation.</span></div>
         </div>
         <div class="security__badge">
-          <div class="security__badge-icon">
-            <!-- Multi-device icon -->
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-              <line x1="8" y1="21" x2="16" y2="21"/>
-              <line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-          </div>
-          <span class="security__badge-text">Multi-device ready</span>
+          <div class="security__badge-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><span class="security__badge-title">Scoped access</span><span class="security__badge-text">Every role only reaches the flights and actions it owns. Admins grant and revoke access as crews change.</span></div>
+        </div>
+        <div class="security__badge">
+          <div class="security__badge-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div><span class="security__badge-title">One live source of truth</span><span class="security__badge-text">Every change propagates to the whole crew at once, so no two people are ever acting on different numbers.</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       CTA Section
-       ============================================ -->
-  <section class="cta section" id="contact">
+  <!-- CTA -->
+  <section class="cta cta--compact" id="contact">
     <div class="container">
-      <div class="cta__box cta__box--premium reveal">
-        <h2>Ready to streamline your<br><span class="text-gradient">turnaround operations?</span></h2>
-        <p class="cta__secondary">
-          Follow MAYFLY on LinkedIn and be part of the journey as we shape the future of turnaround operations.
-        </p>
-        <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--large">
-          Request early access
-        </a>
+      <div class="cta__inline reveal">
+        <span class="cta__inline-text">Interested in Mayfly for your station?</span>
+        <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Request early access</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       Footer
-       ============================================ -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer__content">
       <div class="footer__logo">
         <img src="assets/logo/iconesvg.svg" alt="MAYFLY" width="28" height="28">
-        <span class="footer__copy">© 2026 MAYFLY</span>
+        <span class="footer__copy">&copy; 2026 MAYFLY</span>
       </div>
-
+      <div class="footer__links-center">
+        <a href="#features" class="footer__link">Features</a>
+        <a href="#roles" class="footer__link">Roles</a>
+        <a href="#security" class="footer__link">Security</a>
+      </div>
       <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="footer__linkedin" aria-label="Follow MAYFLY on LinkedIn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="main.js"></script>
 </body>
 </html>
