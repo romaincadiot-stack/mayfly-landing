@@ -156,14 +156,19 @@
     'KL1051': { label:'KL 1051' }
   };
 
-  // BA: left 5 width 35 → ends at 40. AF: left 32 width 28 → ends at 60. Overlap: 32-40.
+  // Conflict: BA ends at 40%, AF starts at 32% → overlap 32-40%
+  // We'll render BA from 5-32%, AF from 40-60%, and a hatched zone at 32-40%
   var conflictLayout = {
-    '10A': [ { id:'BA8173', left:5, width:35 }, { id:'AF1284', left:32, width:28 } ],
+    '10A': [
+      { id:'BA8173', left:5, width:27, showOtp:true },
+      { id:'AF1284', left:40, width:20, showOtp:true },
+      { overlap: true, left:32, width:8 }
+    ],
     '11A': [ { id:'AZ1624', left:5, width:30 }, { id:'U24419', left:45, width:30 } ],
     '12A': [ { id:'FR4152', left:5, width:25 }, { id:'KL1051', left:55, width:28 } ]
   };
   var resolvedLayout = {
-    '10A': [ { id:'BA8173', left:5, width:35 }, { id:'KL1051', left:55, width:28 } ],
+    '10A': [ { id:'BA8173', left:5, width:27 }, { id:'KL1051', left:55, width:28 } ],
     '11A': [ { id:'AZ1624', left:5, width:30 }, { id:'U24419', left:45, width:30 } ],
     '12A': [ { id:'FR4152', left:5, width:25 }, { id:'AF1284', left:40, width:28 } ]
   };
@@ -183,35 +188,35 @@
 
       Object.keys(layout).forEach(function(stand) {
         var track = tracks[stand]; if(!track) return;
-        var items = layout[stand];
-        items.forEach(function(item) {
+        layout[stand].forEach(function(item) {
+          if (item.overlap) {
+            var overlay = document.createElement('div');
+            overlay.className = 'feature-detail__gantt-overlap';
+            overlay.style.left = item.left+'%';
+            overlay.style.width = item.width+'%';
+            track.appendChild(overlay);
+            return;
+          }
           var fl = ganttFlights[item.id];
           var block = document.createElement('div');
           block.className = 'feature-detail__gantt-block';
           block.setAttribute('data-flight', item.id);
           block.style.left = item.left+'%'; block.style.width = item.width+'%';
-          var txt = fl.label;
-          if (fl.otp) txt += ' ('+fl.otp+')';
-          block.textContent = txt;
+          if (item.showOtp && fl.otp) {
+            var nameSpan = document.createElement('span');
+            nameSpan.textContent = fl.label + ' ';
+            var otpSpan = document.createElement('span');
+            otpSpan.textContent = '(' + fl.otp + ')';
+            otpSpan.style.color = fl.otpClass === 'danger' ? '#FF4444' : '#00E676';
+            otpSpan.style.fontWeight = '700';
+            block.appendChild(nameSpan);
+            block.appendChild(otpSpan);
+          } else {
+            block.textContent = fl.label;
+          }
           track.appendChild(block);
           allBlockEls[item.id] = block;
         });
-
-        // Find overlaps and add hatched overlay
-        for (var i=0; i<items.length; i++) {
-          for (var j=i+1; j<items.length; j++) {
-            var a=items[i], b=items[j];
-            var overlapStart = Math.max(a.left, b.left);
-            var overlapEnd = Math.min(a.left+a.width, b.left+b.width);
-            if (overlapStart < overlapEnd) {
-              var overlay = document.createElement('div');
-              overlay.className = 'feature-detail__gantt-overlap';
-              overlay.style.left = overlapStart+'%';
-              overlay.style.width = (overlapEnd-overlapStart)+'%';
-              track.appendChild(overlay);
-            }
-          }
-        }
       });
     } else {
       // Animated: fade out moving blocks, reposition, fade in
@@ -238,6 +243,7 @@
       Object.keys(movedIds).forEach(function(id) { if(allBlockEls[id]) allBlockEls[id].style.opacity='0'; });
 
       setTimeout(function() {
+        // Move blocks to new tracks
         Object.keys(movedIds).forEach(function(id) {
           var info = movedIds[id];
           var el = allBlockEls[id];
@@ -247,13 +253,20 @@
             newTrack.appendChild(el);
             el.style.left = info.left+'%';
             el.style.width = info.width+'%';
-            // Update label (remove OTP for non-conflict blocks)
-            var fl = ganttFlights[id];
-            el.textContent = fl.label;
             void el.offsetHeight;
             el.style.transition = 'opacity .5s ease';
           }
         });
+
+        // Clean ALL blocks: label only, centered
+        Object.keys(allBlockEls).forEach(function(id) {
+          var el = allBlockEls[id];
+          el.textContent = ganttFlights[id].label;
+          el.classList.remove('feature-detail__gantt-block--conflict');
+          el.style.color = '';
+        });
+
+        // Fade in moved blocks
         setTimeout(function() {
           Object.keys(movedIds).forEach(function(id) { if(allBlockEls[id]) allBlockEls[id].style.opacity='1'; });
         }, 100);
