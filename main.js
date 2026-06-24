@@ -380,8 +380,9 @@
       e.preventDefault();
       var firstName = document.getElementById('ea-firstname').value.trim();
       var lastName = document.getElementById('ea-lastname').value.trim();
+      var email = document.getElementById('ea-email').value.trim();
       var company = document.getElementById('ea-company').value.trim();
-      var stopover = document.getElementById('ea-stopover').value.trim();
+      var station = document.getElementById('ea-station').value.trim();
       var message = document.getElementById('ea-message').value.trim();
 
       eaModal.querySelectorAll('.modal__input--error').forEach(function(el) {
@@ -391,8 +392,9 @@
       var valid = true;
       if (!firstName) { document.getElementById('ea-firstname').classList.add('modal__input--error'); valid = false; }
       if (!lastName) { document.getElementById('ea-lastname').classList.add('modal__input--error'); valid = false; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('ea-email').classList.add('modal__input--error'); valid = false; }
       if (!valid) {
-        eaFeedback.textContent = 'Please fill in first and last name.';
+        eaFeedback.textContent = 'Please fill in all required fields.';
         eaFeedback.className = 'modal__feedback modal__feedback--error';
         return;
       }
@@ -407,8 +409,9 @@
         body: JSON.stringify({
           firstName: firstName,
           lastName: lastName,
+          email: email,
           company: company,
-          station: stopover,
+          station: station,
           message: message
         })
       })

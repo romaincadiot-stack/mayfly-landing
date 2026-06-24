@@ -363,30 +363,38 @@
   <div class="modal-overlay" id="ea-modal" aria-hidden="true">
     <div class="modal" role="dialog" aria-labelledby="ea-modal-title">
       <button class="modal__close" id="ea-modal-close" aria-label="Close">&times;</button>
-      <h3 class="modal__title" id="ea-modal-title">Request Early Access</h3>
-      <p class="modal__subtitle">Leave your details and we'll get back to you.</p>
+      <div class="modal__header">
+        <h3 class="modal__title" id="ea-modal-title">Request Early Access</h3>
+        <p class="modal__subtitle">Leave your details and we'll get back to you.</p>
+      </div>
       <form id="ea-form" class="modal__form" novalidate>
         <div class="modal__row">
           <div class="modal__field">
             <label for="ea-firstname">First name <span class="modal__req">*</span></label>
-            <input type="text" id="ea-firstname" required autocomplete="given-name">
+            <input type="text" id="ea-firstname" required autocomplete="given-name" placeholder="Jane">
           </div>
           <div class="modal__field">
             <label for="ea-lastname">Last name <span class="modal__req">*</span></label>
-            <input type="text" id="ea-lastname" required autocomplete="family-name">
+            <input type="text" id="ea-lastname" required autocomplete="family-name" placeholder="Doe">
           </div>
         </div>
         <div class="modal__field">
-          <label for="ea-company">Company</label>
-          <input type="text" id="ea-company" autocomplete="organization">
+          <label for="ea-email">Email <span class="modal__req">*</span></label>
+          <input type="email" id="ea-email" required autocomplete="email" placeholder="jane.doe@company.com">
         </div>
-        <div class="modal__field">
-          <label for="ea-stopover">Escale</label>
-          <input type="text" id="ea-stopover" placeholder="e.g. LYS, BRS, CDG...">
+        <div class="modal__row">
+          <div class="modal__field">
+            <label for="ea-company">Company</label>
+            <input type="text" id="ea-company" autocomplete="organization">
+          </div>
+          <div class="modal__field">
+            <label for="ea-station">Station</label>
+            <input type="text" id="ea-station" placeholder="e.g. LYS, BRS, CDG...">
+          </div>
         </div>
         <div class="modal__field">
           <label for="ea-message">Message</label>
-          <textarea id="ea-message" rows="3"></textarea>
+          <textarea id="ea-message" rows="3" placeholder="Tell us about your needs..."></textarea>
         </div>
         <button type="submit" class="btn btn--primary modal__submit" id="ea-submit">Send request</button>
         <div class="modal__feedback" id="ea-feedback" aria-live="polite"></div>
