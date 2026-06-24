@@ -323,6 +323,109 @@
     carousel.addEventListener('mouseleave', function() { autoSlide = setInterval(function() { slideTo(cIdx + 1); }, 5000); });
   }
 
+  // ===================== EARLY ACCESS MODAL =====================
+  var eaModal = document.getElementById('ea-modal');
+  var eaForm = document.getElementById('ea-form');
+  var eaClose = document.getElementById('ea-modal-close');
+  var eaFeedback = document.getElementById('ea-feedback');
+  var eaSubmit = document.getElementById('ea-submit');
+
+  function openEaModal() {
+    if (!eaModal) return;
+    eaModal.classList.add('active');
+    eaModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (navLinks && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+    setTimeout(function() {
+      var first = document.getElementById('ea-firstname');
+      if (first) first.focus();
+    }, 100);
+  }
+
+  function closeEaModal() {
+    if (!eaModal) return;
+    eaModal.classList.remove('active');
+    eaModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function resetEaForm() {
+    if (eaForm) eaForm.reset();
+    if (eaFeedback) { eaFeedback.textContent = ''; eaFeedback.className = 'modal__feedback'; }
+    if (eaSubmit) eaSubmit.disabled = false;
+    eaModal.querySelectorAll('.modal__input--error').forEach(function(el) {
+      el.classList.remove('modal__input--error');
+    });
+  }
+
+  document.querySelectorAll('.ea-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      resetEaForm();
+      openEaModal();
+    });
+  });
+
+  if (eaClose) eaClose.addEventListener('click', closeEaModal);
+  if (eaModal) eaModal.addEventListener('click', function(e) { if (e.target === eaModal) closeEaModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && eaModal && eaModal.classList.contains('active')) closeEaModal();
+  });
+
+  if (eaForm) {
+    eaForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var firstName = document.getElementById('ea-firstname').value.trim();
+      var lastName = document.getElementById('ea-lastname').value.trim();
+      var company = document.getElementById('ea-company').value.trim();
+      var stopover = document.getElementById('ea-stopover').value.trim();
+      var message = document.getElementById('ea-message').value.trim();
+
+      eaModal.querySelectorAll('.modal__input--error').forEach(function(el) {
+        el.classList.remove('modal__input--error');
+      });
+
+      var valid = true;
+      if (!firstName) { document.getElementById('ea-firstname').classList.add('modal__input--error'); valid = false; }
+      if (!lastName) { document.getElementById('ea-lastname').classList.add('modal__input--error'); valid = false; }
+      if (!valid) {
+        eaFeedback.textContent = 'Please fill in first and last name.';
+        eaFeedback.className = 'modal__feedback modal__feedback--error';
+        return;
+      }
+
+      eaSubmit.disabled = true;
+      eaFeedback.textContent = '';
+      eaFeedback.className = 'modal__feedback';
+
+      fetch('https://mayfly-sandbox-api.onrender.com/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          company: company,
+          station: stopover,
+          message: message
+        })
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        eaFeedback.textContent = 'Request sent! We’ll be in touch.';
+        eaFeedback.className = 'modal__feedback modal__feedback--success';
+        setTimeout(closeEaModal, 2000);
+      })
+      .catch(function() {
+        eaFeedback.textContent = 'Something went wrong. Please try again.';
+        eaFeedback.className = 'modal__feedback modal__feedback--error';
+        eaSubmit.disabled = false;
+      });
+    });
+  }
+
   // ===================== LIVE ACTIVITY FEED =====================
   var feedC = document.getElementById('activity-feed'), feedW = document.getElementById('activity-feed-wrapper');
   if (feedC && feedW) {
