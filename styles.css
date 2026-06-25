@@ -240,10 +240,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   width: 100%;
 }
 
-.nav__lang {
-  margin-left: var(--space-sm);
-}
-
 .nav__lang-toggle {
   font-family: var(--font-sans);
   font-size: 0.75rem;
@@ -265,6 +261,12 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
 
 .nav__cta {
   margin-left: var(--space-lg);
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .nav__toggle {
@@ -307,6 +309,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   .nav__toggle {
     display: flex;
   }
+
 
   .nav__cta {
     margin-left: 0;
