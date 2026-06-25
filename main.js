@@ -34,7 +34,7 @@
   }
 
   // ===================== 01: FLIGHT TABS =====================
-  var logoMap = { 'BA':'assets/logo/BA.png','AF':'assets/logo/Air France_idKuYSvPDb_1.png','AZ':'assets/logo/ITA.png','U2':'assets/logo/U2.jpeg','FR':'assets/logo/FR.png','KL':'assets/logo/KL.jpeg','LH':'assets/logo/LH.jpeg' };
+  var logoMap = { 'BA':'assets/logo/BA.png','AF':'assets/logo/Air France_idKuYSvPDb_1.png','XK':'assets/logo/XK.jpeg','U2':'assets/logo/U2.jpeg','FR':'assets/logo/FR.png','TO':'assets/logo/TO.jpeg','LH':'assets/logo/LH.jpeg' };
   var flightData = {
     onground: [
       { code:'BA 8173', route:'BRS → LYS', type:'A320', stand:'Stand 10A', status:'Boarding', sc:'green', logo:'BA' },
@@ -42,14 +42,14 @@
       { code:'FR 4152', route:'BRS → DUB', type:'B738', stand:'Stand 12A', status:'Cleaning', sc:'blue', logo:'FR' }
     ],
     arrivals: [
-      { code:'KL 1051', route:'AMS → BRS', type:'E190', stand:'', status:'Confirmed at 15:28', sc:'green', otp:'(-00:12)', oc:'text-success', logo:'KL' },
-      { code:'LH 2284', route:'FRA → BRS', type:'A321', stand:'', status:'Expected 16:05', sc:'muted', logo:'LH' },
-      { code:'AF 7520', route:'CDG → BRS', type:'A220', stand:'', status:'Expected 16:40', sc:'muted', logo:'AF' }
+      { code:'TO 3817', route:'ORY → BRS', type:'B738', stand:'', status:'Conf. 15:28', sc:'green', otp:'(-00:12)', oc:'text-success', logo:'TO' },
+      { code:'LH 2284', route:'FRA → BRS', type:'A321', stand:'', status:'Exp. 16:05', sc:'muted', logo:'LH' },
+      { code:'AF 7520', route:'CDG → BRS', type:'A220', stand:'', status:'Exp. 16:40', sc:'muted', logo:'AF' }
     ],
     departed: [
-      { code:'AZ 1624', route:'BRS → FCO', type:'A320', stand:'Stand 11A', status:'Departed 12:10', sc:'muted', otp:'(-00:05)', oc:'text-success', logo:'AZ' },
-      { code:'AF 1284', route:'BRS → CDG', type:'A220', stand:'Stand 10A', status:'Departed 11:45', sc:'muted', otp:'(-00:08)', oc:'text-success', logo:'AF' },
-      { code:'BA 8172', route:'BRS → LGW', type:'A320', stand:'Stand 10A', status:'Departed 10:30', sc:'muted', otp:'(+00:09)', oc:'text-danger', logo:'BA' }
+      { code:'XK 515', route:'BRS → AJA', type:'A220', stand:'Stand 11A', status:'Dep. 12:10', sc:'muted', otp:'(-00:05)', oc:'text-success', logo:'XK' },
+      { code:'AF 1284', route:'BRS → CDG', type:'A220', stand:'Stand 10A', status:'Dep. 11:45', sc:'muted', otp:'(-00:08)', oc:'text-success', logo:'AF' },
+      { code:'BA 8172', route:'BRS → LGW', type:'A320', stand:'Stand 10A', status:'Dep. 10:30', sc:'muted', otp:'(+00:09)', oc:'text-danger', logo:'BA' }
     ]
   };
   var flightTabs = document.getElementById('flight-tabs');
@@ -122,26 +122,74 @@
   var closeM = now.getMinutes();
   var boardingCloseTime = (closeH<10?'0':'')+closeH+':'+(closeM<10?'0':'')+closeM;
 
-  if (paxFinalBtn) {
-    paxFinalBtn.addEventListener('click', function() {
-      var ci=document.getElementById('pax-checkedin'),bags=document.getElementById('pax-bags');
-      var dp=document.getElementById('pax-delta-pax'),db=document.getElementById('pax-delta-bags');
-      var bl=document.getElementById('boarding-label'),bv=document.getElementById('boarding-value');
-      if(!paxFinalActive){
-        paxFinalActive=true;
-        paxFinalBtn.textContent='FINAL confirmed';paxFinalBtn.className='feature-detail__pax-badge feature-detail__pax-badge--final';
-        if(ci)ci.textContent='152';if(bags)bags.textContent='128';
-        if(dp)dp.style.display='inline';if(db)db.style.display='inline';
-        if(bl)bl.textContent='Boarding closes at';if(bv)bv.textContent=boardingCloseTime;
-      } else {
-        paxFinalActive=false;
-        paxFinalBtn.textContent='FINAL pending';paxFinalBtn.className='feature-detail__pax-badge feature-detail__pax-badge--pending feature-detail__pax-badge--clickable';
-        paxFinalBtn.setAttribute('role','button');paxFinalBtn.setAttribute('tabindex','0');
-        if(ci)ci.textContent='154';if(bags)bags.textContent='131';
-        if(dp)dp.style.display='none';if(db)db.style.display='none';
-        if(bl)bl.textContent='Estimated boarding in';if(bv)bv.textContent='08:35';
-      }
+  var stepCheckin = document.getElementById('pax-step-checkin');
+  var stepFinal = document.getElementById('pax-step-final');
+  var m1Val = document.getElementById('pax-m1-val');
+  var m1Label = document.getElementById('pax-m1-label');
+  var m2Val = document.getElementById('pax-m2-val');
+  var m2Label = document.getElementById('pax-m2-label');
+  var m3Val = document.getElementById('pax-m3-val');
+  var m3Label = document.getElementById('pax-m3-label');
+  var pBar = document.getElementById('pax-progress-bar');
+  var pLabel = document.getElementById('pax-progress-label');
+  var dp = document.getElementById('pax-delta-pax');
+  var db = document.getElementById('pax-delta-bags');
+  var bl = document.getElementById('boarding-label');
+  var bv = document.getElementById('boarding-value');
+  var paxAutoTimer = null;
+
+  function setPaxState(isFinal) {
+    paxFinalActive = isFinal;
+    if (isFinal) {
+      stepCheckin.className = 'pax-v2__step pax-v2__step--muted';
+      stepFinal.className = 'pax-v2__step pax-v2__step--active';
+      if (m1Val) m1Val.textContent = '154';
+      if (m1Label) m1Label.textContent = 'Checked in';
+      if (m2Val) m2Val.textContent = '150';
+      if (m2Label) m2Label.textContent = 'Boarded';
+      if (m3Val) m3Val.textContent = '128';
+      if (m3Label) m3Label.textContent = 'Bags';
+      if (dp) { dp.textContent = '-4'; dp.style.display = 'block'; }
+      if (db) { db.textContent = '-3'; db.style.display = 'block'; }
+      if (pBar) pBar.style.width = '97.4%';
+      if (pLabel) pLabel.textContent = '150 / 154 boarded';
+      if (bl) bl.textContent = 'Boarding closes at';
+      if (bv) bv.textContent = boardingCloseTime;
+    } else {
+      stepCheckin.className = 'pax-v2__step pax-v2__step--active';
+      stepFinal.className = 'pax-v2__step pax-v2__step--muted';
+      if (m1Val) m1Val.textContent = '168';
+      if (m1Label) m1Label.textContent = 'Booked';
+      if (m2Val) m2Val.textContent = '154';
+      if (m2Label) m2Label.textContent = 'Checked in';
+      if (m3Val) m3Val.textContent = '131';
+      if (m3Label) m3Label.textContent = 'Bags';
+      if (dp) dp.style.display = 'none';
+      if (db) db.style.display = 'none';
+      if (pBar) pBar.style.width = '91.7%';
+      if (pLabel) pLabel.textContent = '154 / 168 checked in';
+      if (bl) bl.textContent = 'Estimated boarding in';
+      if (bv) bv.textContent = '08:35';
+    }
+  }
+
+  function startPaxAuto() {
+    if (paxAutoTimer) clearInterval(paxAutoTimer);
+    paxAutoTimer = setInterval(function() { setPaxState(!paxFinalActive); }, 5000);
+  }
+
+  if (stepCheckin && stepFinal) {
+    stepCheckin.addEventListener('click', function() {
+      if (paxAutoTimer) clearInterval(paxAutoTimer);
+      paxAutoTimer = null;
+      setPaxState(false);
     });
+    stepFinal.addEventListener('click', function() {
+      if (paxAutoTimer) clearInterval(paxAutoTimer);
+      paxAutoTimer = null;
+      setPaxState(true);
+    });
+    startPaxAuto();
   }
   var boardingSec = 8*60+35;
   setInterval(function(){if(paxFinalActive)return;boardingSec--;if(boardingSec<0)boardingSec=8*60+35;var bv=document.getElementById('boarding-value');if(bv){var m=Math.floor(boardingSec/60),s=boardingSec%60;bv.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;}},1000);
@@ -150,26 +198,26 @@
   var ganttFlights = {
     'BA8173': { label:'BA 8173', otp:'+00:30', otpClass:'danger' },
     'AF1284': { label:'AF 1284', otp:'-00:12', otpClass:'success' },
-    'AZ1624': { label:'AZ 1624' },
+    'XK515': { label:'XK 515' },
     'U24419': { label:'U2 4419' },
     'FR4152': { label:'FR 4152' },
-    'KL1051': { label:'KL 1051' }
+    'TO3817': { label:'TO 3817' }
   };
 
   // Conflict: BA ends at 40%, AF starts at 32% → overlap 32-40%
   // We'll render BA from 5-32%, AF from 40-60%, and a hatched zone at 32-40%
   var conflictLayout = {
     '10A': [
-      { id:'BA8173', left:5, width:27, showOtp:true },
-      { id:'AF1284', left:40, width:20, showOtp:true },
-      { overlap: true, left:32, width:8 }
+      { id:'BA8173', left:3, width:28, showOtp:true },
+      { id:'AF1284', left:45, width:25, showOtp:true },
+      { overlap: true, left:31, width:14 }
     ],
-    '11A': [ { id:'AZ1624', left:5, width:30 }, { id:'U24419', left:45, width:30 } ],
-    '12A': [ { id:'FR4152', left:5, width:25 }, { id:'KL1051', left:55, width:28 } ]
+    '11A': [ { id:'XK515', left:5, width:30 }, { id:'U24419', left:45, width:30 } ],
+    '12A': [ { id:'FR4152', left:5, width:25 }, { id:'TO3817', left:55, width:28 } ]
   };
   var resolvedLayout = {
-    '10A': [ { id:'BA8173', left:5, width:27 }, { id:'KL1051', left:55, width:28 } ],
-    '11A': [ { id:'AZ1624', left:5, width:30 }, { id:'U24419', left:45, width:30 } ],
+    '10A': [ { id:'BA8173', left:5, width:27 }, { id:'TO3817', left:55, width:28 } ],
+    '11A': [ { id:'XK515', left:5, width:30 }, { id:'U24419', left:45, width:30 } ],
     '12A': [ { id:'FR4152', left:5, width:25 }, { id:'AF1284', left:40, width:28 } ]
   };
 
@@ -303,24 +351,44 @@
   var prevBtn = document.getElementById('carousel-prev');
   var nextBtn = document.getElementById('carousel-next');
   if (carousel) {
-    var cards = carousel.querySelectorAll('.capability-card');
-    var total = cards.length;
+    // Clone first few cards to end for infinite loop
+    var origCards = carousel.querySelectorAll('.capability-card');
+    var total = origCards.length;
+    for (var ci = 0; ci < 3; ci++) carousel.appendChild(origCards[ci].cloneNode(true));
+
     var cIdx = 0;
-    function getStep() { var gap=parseFloat(getComputedStyle(carousel).gap)||24; return cards[0].offsetWidth+gap; }
-    function slideTo(i) {
-      var max = total - 3;
-      if (max < 0) max = 0;
-      if (i < 0) i = 0;
-      if (i > max) i = 0;
+    var isTransitioning = false;
+    function getStep() { var gap = parseFloat(getComputedStyle(carousel).gap) || 24; return origCards[0].offsetWidth + gap; }
+
+    function slideTo(i, instant) {
+      if (isTransitioning && !instant) return;
       cIdx = i;
-      carousel.style.transform = 'translateX(-'+(getStep()*cIdx)+'px)';
+      if (instant) {
+        carousel.style.transition = 'none';
+        carousel.style.transform = 'translateX(-' + (getStep() * cIdx) + 'px)';
+        void carousel.offsetHeight;
+        carousel.style.transition = 'transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)';
+        return;
+      }
+      isTransitioning = true;
+      carousel.style.transform = 'translateX(-' + (getStep() * cIdx) + 'px)';
+      setTimeout(function() {
+        isTransitioning = false;
+        if (cIdx >= total) { cIdx = 0; slideTo(0, true); }
+      }, 720);
     }
-    if (prevBtn) prevBtn.addEventListener('click', function() { slideTo(cIdx - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function() { slideTo(cIdx + 1); });
-    var autoSlide = setInterval(function() { slideTo(cIdx + 1); }, 5000);
-    // Pause auto on hover
+
+    function slideNext() { slideTo(cIdx + 1); }
+    function slidePrev() { if (cIdx <= 0) { slideTo(total, true); setTimeout(function() { slideTo(total - 1); }, 30); } else { slideTo(cIdx - 1); } }
+
+    if (prevBtn) prevBtn.addEventListener('click', slidePrev);
+    if (nextBtn) nextBtn.addEventListener('click', slideNext);
+    var autoSlide = setInterval(slideNext, 4000);
     carousel.addEventListener('mouseenter', function() { clearInterval(autoSlide); });
-    carousel.addEventListener('mouseleave', function() { autoSlide = setInterval(function() { slideTo(cIdx + 1); }, 5000); });
+    carousel.addEventListener('mouseleave', function() { autoSlide = setInterval(slideNext, 4000); });
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { if (diff > 0) slideNext(); else slidePrev(); } }, { passive: true });
   }
 
   // ===================== EARLY ACCESS MODAL =====================

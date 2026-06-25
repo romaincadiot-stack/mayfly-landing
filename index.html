@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=14">
   <link rel="icon" type="image/png" href="assets/logo/Design sans titre (15).png">
 </head>
 <body>
@@ -29,14 +29,13 @@
         <li><a href="#product" class="nav__link" data-i18n="nav.product">Product</a></li>
         <li><a href="#roles" class="nav__link" data-i18n="nav.roles">Roles</a></li>
         <li><a href="#security" class="nav__link" data-i18n="nav.security">Security</a></li>
-        <li><a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="nav__link">Contact</a></li>
-        <!-- Language switcher (hidden until FR translations are finalized) -->
-        <li class="nav__lang" id="lang-switcher" style="display:none">
-          <button class="nav__lang-btn nav__lang-btn--active" data-lang="en">EN</button>
-          <button class="nav__lang-btn" data-lang="fr">FR</button>
-        </li>
+        <li><a href="#pilot" class="nav__link" data-i18n="nav.pilot">Pilot program</a></li>
+        <li><a href="mailto:contact@mayfly.pro" class="nav__link">Contact</a></li>
         <li class="nav__cta">
           <a href="#" class="btn btn--nav ea-trigger" data-i18n="nav.cta">Request early access</a>
+        </li>
+        <li class="nav__lang">
+          <button class="nav__lang-toggle" id="lang-toggle-btn" type="button" onclick="window.mayfly_i18n.applyLang(window.mayfly_i18n.getLang()==='en'?'fr':'en')">EN</button>
         </li>
       </ul>
       <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
@@ -53,11 +52,10 @@
     </div>
     <div class="container hero__content">
       <div class="hero__text">
-        <div class="hero__badge" data-i18n="hero.badge">Coming Soon</div>
         <h1 class="hero__title" data-i18n="hero.title" data-i18n-html="1">Ground Handling operations,<br><span class="text-gradient">finally in one place.</span></h1>
         <p class="hero__subtitle" data-i18n="hero.subtitle">MAYFLY centralizes operational data into a single source of truth for airport operations, helping teams stay aligned in real time.</p>
         <div class="hero__actions">
-          <a href="#" class="btn btn--secondary btn--large ea-trigger" data-i18n="hero.cta">Request early access</a>
+          <a href="#" class="btn btn--secondary ea-trigger" data-i18n="hero.cta">Request early access</a>
           <a href="#features" class="hero__see-more" data-i18n="hero.see_more">See what it does &rarr;</a>
         </div>
       </div>
@@ -84,21 +82,21 @@
     <div class="container">
       <div class="positioning__content reveal">
         <div class="positioning__left">
-          <span class="positioning__label" data-i18n="pos.label">What is a transit?</span>
-          <p class="positioning__intro" data-i18n="pos.intro">The time an aircraft spends on the ground, from arrival to departure. That's the unit Mayfly is built around.</p>
+          <span class="positioning__label" data-i18n="pos.label">What is a turnaround?</span>
+          <p class="positioning__intro" data-i18n="pos.intro">Everything that happens between block on and block off. Mayfly covers this entire scope, giving every team a shared, real-time view of the operation.</p>
         </div>
         <div class="positioning__right">
           <div class="positioning__point">
             <span class="positioning__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <p data-i18n="pos.p1">Every role sees the same data, at the same moment, on any device.</p>
+            <p data-i18n="pos.p1">Each agent gets a dedicated interface, whether on the apron with a phone or in the office on a desktop.</p>
           </div>
           <div class="positioning__point">
             <span class="positioning__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-            <p data-i18n="pos.p2">Ground dispatcher, passenger agent, ramp agent, supervisor: one shared picture.</p>
+            <p data-i18n="pos.p2">Operational documents (Loadsheet, Loading Instruction Report, Final Flight Report) are generated automatically, reducing calculation and input errors.</p>
           </div>
           <div class="positioning__point">
             <span class="positioning__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>
-            <p data-i18n="pos.p3">From touchdown to pushback, everything orchestrated in one place.</p>
+            <p data-i18n="pos.p3">Fast deployment on a station, intuitive onboarding: teams are operational within hours.</p>
           </div>
         </div>
       </div>
@@ -120,7 +118,7 @@
           <h3 data-i18n="f01.title">See every flight, in the state it's really in</h3>
           <p data-i18n="f01.desc">Flights are organised by what they need right now: inbound, on the ground, or departed. Each one shows its flight number, airline, aircraft, route, scheduled and estimated times, and stand. Status moves on its own as the turnaround progresses.</p>
           <ul class="feature-detail__bullets">
-            <li data-i18n="f01.b1">Opens straight onto active flights, falling back to arrivals when the apron is quiet</li>
+            <li data-i18n="f01.b1">Works on mobile and desktop: field agents view and update directly from their phone</li>
             <li data-i18n="f01.b2">Refreshes continuously with a live connection indicator you can trust</li>
           </ul>
         </div>
@@ -202,25 +200,50 @@
           <p data-i18n="f04.desc">The passenger agent enters booked, checked-in and bag counts, confirms the high-load estimate once check-in closes, and locks the final figures before departure.</p>
           <ul class="feature-detail__bullets">
             <li data-i18n="f04.b1">Track wheelchairs, unaccompanied minors, reduced mobility, animals and medical needs in one place</li>
-            <li data-i18n="f04.b2">Load recommendations re-run the moment a count changes, with a live boarding countdown</li>
+            <li data-i18n="f04.b2">Load recommendations recalculated automatically whenever passenger or bag counts change</li>
           </ul>
         </div>
         <div class="feature-detail__visual">
-          <div class="feature-detail__card" id="pax-card">
-            <div class="feature-detail__pax-stats">
-              <div class="feature-detail__pax-stat"><div class="feature-detail__pax-stat-label">Booked</div><div class="feature-detail__pax-stat-value-row"><span>168</span></div></div>
-              <div class="feature-detail__pax-stat"><div class="feature-detail__pax-stat-label">Checked in</div><div class="feature-detail__pax-stat-value-row"><span id="pax-checkedin">154</span><span class="feature-detail__pax-inline-delta" id="pax-delta-pax" style="display:none"><span class="text-danger">-2</span></span></div></div>
-              <div class="feature-detail__pax-stat"><div class="feature-detail__pax-stat-label">Bags</div><div class="feature-detail__pax-stat-value-row"><span id="pax-bags">131</span><span class="feature-detail__pax-inline-delta" id="pax-delta-bags" style="display:none"><span class="text-danger">-3</span></span></div></div>
+          <div class="feature-detail__card pax-card-v2" id="pax-card">
+            <div class="pax-v2__flight-row">
+              <span class="pax-v2__flight-logo"><img src="assets/logo/BA.png" alt="BA" width="16" height="16"></span>
+              <span class="pax-v2__flight-code">BA 8173 &bull; BRS &rarr; LYS</span>
             </div>
-            <div class="feature-detail__pax-status-row">
-              <span class="feature-detail__pax-badge feature-detail__pax-badge--confirmed">HLE confirmed</span>
-              <span class="feature-detail__pax-badge feature-detail__pax-badge--pending feature-detail__pax-badge--clickable" id="pax-final-btn" role="button" tabindex="0">FINAL pending</span>
+            <div class="pax-v2__steps">
+              <button class="pax-v2__step pax-v2__step--active" id="pax-step-checkin" type="button">Check-in closed</button>
+              <span class="pax-v2__step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <button class="pax-v2__step pax-v2__step--muted" id="pax-step-final" type="button">Final confirmed</button>
             </div>
-            <div class="feature-detail__ssr-label">Special services (SSR)</div>
-            <div class="feature-detail__ssr-tags"><span class="feature-detail__ssr-tag">2 &times; WCHC</span><span class="feature-detail__ssr-tag">1 &times; UM</span></div>
-            <div class="feature-detail__boarding-banner" id="boarding-banner">
-              <div class="feature-detail__boarding-banner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-              <div class="feature-detail__boarding-banner-content"><span class="feature-detail__boarding-banner-label" id="boarding-label">Estimated boarding in</span><span class="feature-detail__boarding-banner-value" id="boarding-value">08:35</span></div>
+            <div class="pax-v2__grid" id="pax-grid">
+              <div class="pax-v2__metric">
+                <span class="pax-v2__metric-value" id="pax-m1-val">168</span>
+                <span class="pax-v2__metric-label" id="pax-m1-label">Booked</span>
+              </div>
+              <div class="pax-v2__metric">
+                <span class="pax-v2__metric-value" id="pax-m2-val">154</span>
+                <span class="pax-v2__metric-label" id="pax-m2-label">Checked in</span>
+                <span class="pax-v2__metric-delta" id="pax-delta-pax" style="display:none">-2</span>
+              </div>
+              <div class="pax-v2__metric">
+                <span class="pax-v2__metric-value" id="pax-m3-val">131</span>
+                <span class="pax-v2__metric-label" id="pax-m3-label">Bags</span>
+                <span class="pax-v2__metric-delta" id="pax-delta-bags" style="display:none">-3</span>
+              </div>
+            </div>
+            <div class="pax-v2__progress">
+              <div class="pax-v2__progress-track">
+                <div class="pax-v2__progress-fill" id="pax-progress-bar" style="width: 91.7%"></div>
+              </div>
+              <span class="pax-v2__progress-label" id="pax-progress-label">154 / 168 checked in</span>
+            </div>
+            <div class="pax-v2__tags">
+              <span class="pax-v2__tag">2 &times; WCHC</span>
+              <span class="pax-v2__tag">1 &times; UM</span>
+            </div>
+            <div class="pax-v2__footer" id="boarding-banner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span class="pax-v2__footer-label" id="boarding-label">Estimated boarding in</span>
+              <span class="pax-v2__footer-value" id="boarding-value">08:35</span>
             </div>
           </div>
         </div>
@@ -235,7 +258,7 @@
           <div class="feature-detail__steps">
             <div class="feature-detail__step"><span class="feature-detail__step-id">V1</span><span class="feature-detail__step-name">Instruction</span><span class="feature-detail__step-desc" data-i18n="f05.v1">Recommended split per airline rules</span></div>
             <div class="feature-detail__step"><span class="feature-detail__step-id">V2</span><span class="feature-detail__step-name">Check-in</span><span class="feature-detail__step-desc" data-i18n="f05.v2">Real quantities at the counter</span></div>
-            <div class="feature-detail__step"><span class="feature-detail__step-id">V3</span><span class="feature-detail__step-name" data-i18n="f05.v3name">Loaded</span><span class="feature-detail__step-desc" data-i18n="f05.v3">What actually went on board</span></div>
+            <div class="feature-detail__step"><span class="feature-detail__step-id">V3</span><span class="feature-detail__step-name" data-i18n="f05.v3name">Loaded</span><span class="feature-detail__step-desc" data-i18n="f05.v3">Actual load confirmed at door closure</span></div>
           </div>
         </div>
         <div class="feature-detail__visual">
@@ -268,7 +291,7 @@
           <p data-i18n="f06.desc">A schedule view lays out every stand over time and flags conflicts before they bite. Assign by drag-and-drop, respect each stand's constraints, or ask for an automatic layout that makes the most of the apron.</p>
           <ul class="feature-detail__bullets">
             <li data-i18n="f06.b1">Alerts for overlapping windows, wrong aircraft size, night restrictions</li>
-            <li data-i18n="f06.b2">Automatic stand suggestion to optimize apron usage across the day</li>
+            <li data-i18n="f06.b2">Timeline view per stand to plan ahead for rotations and overnight parking</li>
           </ul>
         </div>
         <div class="feature-detail__visual">
@@ -299,9 +322,13 @@
         <div class="capabilities__carousel" id="capabilities-carousel">
           <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h4 data-i18n="cap.c1.t">Ground service requests</h4><p data-i18n="cap.c1.d">Raise fuelling, cleaning, de-icing, water or other requests from the flight, set a priority, and the operations team accepts or declines in real time.</p></article>
           <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div><h4 data-i18n="cap.c2.t">Team planning</h4><p data-i18n="cap.c2.d">A lane per agent shows their flights across the day, colour-coded by role, so supervisors can read workload at a glance and rebalance before anyone is overloaded.</p></article>
-          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M9 20l-5.5 2.5V6L9 3.5m0 16.5l6-2.5m-6 2.5V3.5m6 14l5.5 2.5V6L15 3.5m0 14V3.5m0 0L9 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h4 data-i18n="cap.c3.t">Airport map</h4><p data-i18n="cap.c3.d">See the airport layout with stands and live aircraft positions. Taxiways fade out as you zoom to keep the picture readable on a tablet in the field.</p></article>
-          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h4 data-i18n="cap.c4.t">IATA delay codes</h4><p data-i18n="cap.c4.d">The full IATA delay-code reference, with operational descriptions and each airline's preferred set, on hand from any screen without leaving what you're doing.</p></article>
-          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></div><h4 data-i18n="cap.c5.t">Multi-station</h4><p data-i18n="cap.c5.d">Each airport is an isolated station with its own data, users and configuration. One platform runs many stations at once; platform admins see across all of them.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><path d="M9 20l-5.5 2.5V6L9 3.5m0 16.5l6-2.5m-6 2.5V3.5m6 14l5.5 2.5V6L15 3.5m0 14V3.5m0 0L9 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h4 data-i18n="cap.c3.t">Airport map</h4><p data-i18n="cap.c3.d">See the airport layout with stands and live aircraft positions. Supervisors can take operational actions directly from the map.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h4 data-i18n="cap.c4.t">IATA delay codes</h4><p data-i18n="cap.c4.d">Delay codes are automatically determined from the IATA reference list and each airline's specific codes. A determination tool guides agents in selecting the right codes based on what happened during the turnaround.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></div><h4 data-i18n="cap.c5.t">Multi-station</h4><p data-i18n="cap.c5.d">Each airport is an isolated station with its own data, users and configuration. Platform administrators get a consolidated view across all their stations.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="18" x2="12" y2="18.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h4 data-i18n="cap.c6.t">Mobile &amp; field-ready</h4><p data-i18n="cap.c6.d">Apron agents get a dedicated mobile interface optimised for quick input. Supervisors and managers work from a full desktop interface tailored to their needs.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.8"/><path d="M9 15l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 data-i18n="cap.c7.t">Auto-generated documents</h4><p data-i18n="cap.c7.d">Loadsheet, LIR and loading documents are produced automatically from entered data, eliminating calculation errors and double entry.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 data-i18n="cap.c8.t">EASA compliance</h4><p data-i18n="cap.c8.d">Designed in compliance with EASA EU regulation 2025/20. Operational data archiving is built in natively for full traceability.</p></article>
+          <article class="capability-card"><div class="capability-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 data-i18n="cap.c9.t">Fast deployment</h4><p data-i18n="cap.c9.d">A station is operational within days. The intuitive interface enables rapid onboarding for agents, without heavy training programs.</p></article>
         </div>
       </div>
     </div>
@@ -317,10 +344,10 @@
           <p data-i18n="roles.desc">Roles scope what each person can see and do. Station admins manage users, airlines and airport configuration; platform admins oversee every station.</p>
         </div>
         <div class="roles__table">
-          <div class="roles__row"><div class="roles__role">Ground Dispatcher</div><div class="roles__scope" data-i18n="roles.r1">Turnaround coordination, milestones, service requests, crew messaging</div></div>
-          <div class="roles__row"><div class="roles__role">Passenger Agent</div><div class="roles__scope" data-i18n="roles.r2">Check-in figures, boarding, SSR tracking, load estimates</div></div>
-          <div class="roles__row"><div class="roles__role">Ramp Agent</div><div class="roles__scope" data-i18n="roles.r3">Hold loading, baggage distribution, loadsheet confirmation</div></div>
-          <div class="roles__row"><div class="roles__role">Operations Agent</div><div class="roles__scope" data-i18n="roles.r4">Ground service requests, equipment coordination</div></div>
+          <div class="roles__row"><div class="roles__role">Ground Dispatcher</div><div class="roles__scope" data-i18n="roles.r1">Milestone tracking, service requests, loading/unloading instruction support, mass and balance editing</div></div>
+          <div class="roles__row"><div class="roles__role">Passenger Agent</div><div class="roles__scope" data-i18n="roles.r2">Passenger and baggage data, SSR tracking, check-in monitoring and boarding coordination</div></div>
+          <div class="roles__row"><div class="roles__role">Ramp Agent</div><div class="roles__scope" data-i18n="roles.r3">Loading instruction report, baggage distribution, loadsheet confirmation</div></div>
+          <div class="roles__row"><div class="roles__role">Operations Agent</div><div class="roles__scope" data-i18n="roles.r4">Service requests, equipment coordination, operational message management (MVT, SLOT, ED, etc)</div></div>
           <div class="roles__row roles__row--highlight"><div class="roles__role">Supervisor</div><div class="roles__scope" data-i18n="roles.r5">Full station visibility, team assignments, workload management</div></div>
           <div class="roles__row roles__row--highlight"><div class="roles__role">Station Manager</div><div class="roles__scope" data-i18n="roles.r6">User management, airline configuration, airport setup, billing</div></div>
         </div>
@@ -331,7 +358,7 @@
   <!-- Security -->
   <section class="security section" id="security">
     <div class="container">
-      <div class="reveal"><h2 data-i18n="sec.title" data-i18n-html="1">Built for<br><span class="text-gradient">controlled operations</span></h2></div>
+      <div class="reveal"><h2 data-i18n="sec.title" data-i18n-html="1">Built for<br><span class="text-gradient">regulated environments</span></h2></div>
       <div class="security__badges reveal-stagger">
         <div class="security__badge"><div class="security__badge-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><span class="security__badge-title" data-i18n="sec.s1.t">Isolated stations</span><span class="security__badge-text" data-i18n="sec.s1.d">Data, users and configuration are separated per airport. A field team never sees another station's operation.</span></div></div>
         <div class="security__badge"><div class="security__badge-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><span class="security__badge-title" data-i18n="sec.s2.t">Scoped access</span><span class="security__badge-text" data-i18n="sec.s2.d">Every role only reaches the flights and actions it owns. Admins grant and revoke access as crews change.</span></div></div>
@@ -340,22 +367,55 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta cta--compact" id="contact">
+  <!-- Pilot Program -->
+  <section class="pilot section" id="pilot">
     <div class="container">
-      <div class="cta__inline reveal">
-        <span class="cta__inline-text" data-i18n="cta.text">Interested in Mayfly for your station?</span>
-        <a href="#" class="btn btn--primary ea-trigger" data-i18n="nav.cta">Request early access</a>
+      <div class="pilot__content reveal">
+        <div class="pilot__header">
+          <span class="pilot__badge" data-i18n="pilot.badge">Looking for partners</span>
+          <h2 data-i18n="pilot.title" data-i18n-html="1">Help us build the right tool.<br><span class="text-gradient-violet">Become a test station.</span></h2>
+          <p class="pilot__subtitle" data-i18n="pilot.subtitle">We're looking for airports willing to let us run Mayfly on-site during real operations. If your station handles regional or mid-size traffic and you're open to testing a new approach to turnaround coordination, we'd like to hear from you.</p>
+        </div>
+        <div class="pilot__grid">
+          <div class="pilot__card">
+            <div class="pilot__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div>
+            <h4 data-i18n="pilot.c1.t">On-site testing</h4>
+            <p data-i18n="pilot.c1.d">We come to your station, deploy the platform, and run it alongside your teams during live turnarounds.</p>
+          </div>
+          <div class="pilot__card">
+            <div class="pilot__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h4 data-i18n="pilot.c2.t">Your feedback shapes the product</h4>
+            <p data-i18n="pilot.c2.d">Every insight from your dispatchers, ramp agents and supervisors feeds directly into the next version.</p>
+          </div>
+          <div class="pilot__card">
+            <div class="pilot__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+            <h4 data-i18n="pilot.c3.t">No commitment, no cost</h4>
+            <p data-i18n="pilot.c3.d">The pilot is entirely free. We handle the setup and adapt to your schedule and constraints.</p>
+          </div>
+        </div>
+        <div class="pilot__cta">
+          <p class="pilot__cta-text" data-i18n="pilot.cta_text">Interested? Reach out and let's talk about how a pilot could work at your station.</p>
+          <a href="mailto:contact@mayfly.pro" class="pilot__email">contact@mayfly.pro</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer__content">
-      <div class="footer__logo"><img src="assets/logo/iconesvg.svg" alt="MAYFLY" width="28" height="28"><span class="footer__copy">&copy; 2026 MAYFLY</span></div>
-      <div class="footer__links-center"><a href="#features" class="footer__link" data-i18n="nav.features">Features</a><a href="#roles" class="footer__link" data-i18n="nav.roles">Roles</a><a href="#security" class="footer__link" data-i18n="nav.security">Security</a></div>
-      <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="footer__linkedin" aria-label="Follow MAYFLY on LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <div class="container">
+      <div class="footer__cta">
+        <span class="footer__cta-text" data-i18n="cta.text">Interested in Mayfly for your station?</span>
+        <a href="#" class="footer__cta-link ea-trigger" data-i18n="nav.cta">Request early access</a>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__logo"><img src="assets/logo/iconesvg.svg" alt="MAYFLY" width="24" height="24"><span class="footer__copy">&copy; 2026 MAYFLY</span></div>
+        <div class="footer__links-center"><a href="#features" class="footer__link" data-i18n="nav.features">Features</a><a href="#roles" class="footer__link" data-i18n="nav.roles">Roles</a><a href="#security" class="footer__link" data-i18n="nav.security">Security</a><a href="#pilot" class="footer__link" data-i18n="nav.pilot">Pilot program</a></div>
+        <div class="footer__right">
+          <a href="mailto:contact@mayfly.pro" class="footer__link">contact@mayfly.pro</a>
+          <a href="https://www.linkedin.com/company/mayflypro" target="_blank" rel="noopener noreferrer" class="footer__linkedin" aria-label="Follow MAYFLY on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -365,7 +425,7 @@
       <button class="modal__close" id="ea-modal-close" aria-label="Close">&times;</button>
       <div class="modal__header">
         <h3 class="modal__title" id="ea-modal-title">Request Early Access</h3>
-        <p class="modal__subtitle">Leave your details and we'll get back to you.</p>
+        <p class="modal__subtitle">Leave your details and we'll get back to you, or email us at <a href="mailto:contact@mayfly.pro" style="color:var(--color-primary)">contact@mayfly.pro</a>.</p>
       </div>
       <form id="ea-form" class="modal__form" novalidate>
         <div class="modal__row">
@@ -402,7 +462,7 @@
     </div>
   </div>
 
-  <script src="i18n.js"></script>
-  <script src="main.js"></script>
+  <script src="i18n.js?v=14"></script>
+  <script src="main.js?v=14"></script>
 </body>
 </html>
