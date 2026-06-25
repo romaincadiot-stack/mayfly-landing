@@ -22,7 +22,6 @@
     a.addEventListener('click', function(e) { var id=this.getAttribute('href'); if(id==='#')return; var el=document.querySelector(id); if(el){e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'});} });
   });
 
-  // ===================== HERO MILESTONES =====================
   var msC = document.getElementById('milestones-container');
   if (msC) {
     var CK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
@@ -33,7 +32,6 @@
     runMs();
   }
 
-  // ===================== 01: FLIGHT TABS =====================
   var logoMap = { 'BA':'assets/logo/BA.png','AF':'assets/logo/Air France_idKuYSvPDb_1.png','XK':'assets/logo/XK.jpeg','U2':'assets/logo/U2.jpeg','FR':'assets/logo/FR.png','TO':'assets/logo/TO.jpeg','LH':'assets/logo/LH.jpeg' };
   var flightData = {
     onground: [
@@ -88,7 +86,6 @@
     setInterval(function() { tabIdx=(tabIdx+1)%tabKeys.length; setTab(tabIdx); }, 5000);
   }
 
-  // ===================== 03: CHAT =====================
   var chatCard = document.getElementById('chat-card');
   var chatMessages = document.getElementById('chat-messages');
   var chatInput = document.getElementById('chat-input');
@@ -114,7 +111,6 @@
   if(chatSendBtn)chatSendBtn.addEventListener('click',sendChat);
   if(chatInput)chatInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();sendChat();}});
 
-  // ===================== 04: PAX FINAL =====================
   var paxFinalBtn = document.getElementById('pax-final-btn');
   var paxFinalActive = false;
   var now = new Date();
@@ -194,7 +190,6 @@
   var boardingSec = 8*60+35;
   setInterval(function(){if(paxFinalActive)return;boardingSec--;if(boardingSec<0)boardingSec=8*60+35;var bv=document.getElementById('boarding-value');if(bv){var m=Math.floor(boardingSec/60),s=boardingSec%60;bv.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;}},1000);
 
-  // ===================== 06: STAND MANAGEMENT =====================
   var ganttFlights = {
     'BA8173': { label:'BA 8173', otp:'+00:30', otpClass:'danger' },
     'AF1284': { label:'AF 1284', otp:'-00:12', otpClass:'success' },
@@ -204,8 +199,6 @@
     'TO3817': { label:'TO 3817' }
   };
 
-  // Conflict: BA ends at 40%, AF starts at 32% → overlap 32-40%
-  // We'll render BA from 5-32%, AF from 40-60%, and a hatched zone at 32-40%
   var conflictLayout = {
     '10A': [
       { id:'BA8173', left:3, width:28, showOtp:true },
@@ -267,7 +260,6 @@
         });
       });
     } else {
-      // Animated: fade out moving blocks, reposition, fade in
       var movedIds = {};
       Object.keys(layout).forEach(function(stand) {
         layout[stand].forEach(function(item) {
@@ -281,17 +273,14 @@
         });
       });
 
-      // Remove overlap overlays
       document.querySelectorAll('.feature-detail__gantt-overlap').forEach(function(el) {
         el.style.opacity = '0';
         setTimeout(function() { el.remove(); }, 500);
       });
 
-      // Fade out moving blocks
       Object.keys(movedIds).forEach(function(id) { if(allBlockEls[id]) allBlockEls[id].style.opacity='0'; });
 
       setTimeout(function() {
-        // Move blocks to new tracks
         Object.keys(movedIds).forEach(function(id) {
           var info = movedIds[id];
           var el = allBlockEls[id];
@@ -306,7 +295,6 @@
           }
         });
 
-        // Clean ALL blocks: label only, centered
         Object.keys(allBlockEls).forEach(function(id) {
           var el = allBlockEls[id];
           el.textContent = ganttFlights[id].label;
@@ -314,7 +302,6 @@
           el.style.color = '';
         });
 
-        // Fade in moved blocks
         setTimeout(function() {
           Object.keys(movedIds).forEach(function(id) { if(allBlockEls[id]) allBlockEls[id].style.opacity='1'; });
         }, 100);
@@ -346,12 +333,10 @@
     });
   }
 
-  // ===================== CAPABILITIES CAROUSEL =====================
   var carousel = document.getElementById('capabilities-carousel');
   var prevBtn = document.getElementById('carousel-prev');
   var nextBtn = document.getElementById('carousel-next');
   if (carousel) {
-    // Clone first few cards to end for infinite loop
     var origCards = carousel.querySelectorAll('.capability-card');
     var total = origCards.length;
     for (var ci = 0; ci < 3; ci++) carousel.appendChild(origCards[ci].cloneNode(true));
@@ -391,7 +376,6 @@
     carousel.addEventListener('touchend', function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { if (diff > 0) slideNext(); else slidePrev(); } }, { passive: true });
   }
 
-  // ===================== EARLY ACCESS MODAL =====================
   var eaModal = document.getElementById('ea-modal');
   var eaForm = document.getElementById('ea-form');
   var eaClose = document.getElementById('ea-modal-close');
@@ -497,7 +481,6 @@
     });
   }
 
-  // ===================== LIVE ACTIVITY FEED =====================
   var feedC = document.getElementById('activity-feed'), feedW = document.getElementById('activity-feed-wrapper');
   if (feedC && feedW) {
     var n2=new Date(),hh=n2.getHours(),mm=n2.getMinutes(),at2=(hh<10?'0':'')+hh+':'+(mm<10?'0':'')+mm,cs2=600;

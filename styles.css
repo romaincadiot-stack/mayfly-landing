@@ -1,40 +1,36 @@
-/* ============================================
-   MAYFLY Landing Page Styles
-   Modern B2B SaaS for Ground Handling Operations
-   ============================================ */
 
-/* CSS Custom Properties (Theme) */
+
 :root {
-  /* Brand Colors - extracted from logo */
+  
   --color-primary: #60A1D9;
   --color-primary-light: #7BB5E3;
   --color-primary-dark: #4A8BC5;
   --color-secondary: #5895D6;
   --color-accent: #3A69B3;
 
-  /* Violet Accent */
+  
   --color-violet: #A78BFA;
   --color-violet-light: #C4B5FD;
   --color-violet-dark: #8B5CF6;
 
-  /* Dark Theme Base */
+  
   --color-bg-dark: #0D1117;
   --color-bg-card: #161C28;
   --color-bg-elevated: #1C2333;
   --color-bg-hover: #242D3D;
 
-  /* Text Colors */
+  
   --color-text-primary: #FAFAFB;
   --color-text-secondary: #A0AEC0;
   --color-text-muted: #6B7280;
 
-  /* Status Colors */
+  
   --color-success: #4ADE80;
   --color-danger: #F87171;
   --color-warning: #FB923C;
   --color-info: #60A1D9;
 
-  /* Borders & Shadows */
+  
   --color-border: rgba(96, 161, 217, 0.15);
   --color-border-light: rgba(255, 255, 255, 0.08);
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -42,11 +38,11 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
   --shadow-glow: 0 0 40px rgba(96, 161, 217, 0.15);
 
-  /* Typography */
+  
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Spacing Scale */
+  
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -56,26 +52,23 @@
   --space-3xl: 4rem;
   --space-4xl: 6rem;
 
-  /* Border Radius */
+  
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 9999px;
 
-  /* Transitions */
+  
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 
-  /* Layout */
+  
   --max-width: 1200px;
   --header-height: 72px;
 }
 
-/* ============================================
-   Reset & Base Styles
-   ============================================ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -119,9 +112,6 @@ button {
   background: none;
 }
 
-/* ============================================
-   Typography
-   ============================================ */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
@@ -150,9 +140,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   color: var(--color-danger);
 }
 
-/* ============================================
-   Layout Utilities
-   ============================================ */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -164,9 +151,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   padding: var(--space-4xl) 0;
 }
 
-/* ============================================
-   Header / Navbar
-   ============================================ */
 .header {
   position: fixed;
   top: 0;
@@ -310,16 +294,12 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     display: flex;
   }
 
-
   .nav__cta {
     margin-left: 0;
     margin-top: var(--space-md);
   }
 }
 
-/* ============================================
-   Buttons
-   ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -390,9 +370,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   border-color: var(--color-text-muted);
 }
 
-/* ============================================
-   Hero Section
-   ============================================ */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -532,7 +509,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   color: var(--color-text-primary);
 }
 
-/* Product Mockup Card */
 .hero__mockup {
   position: relative;
   perspective: 1000px;
@@ -895,9 +871,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   Positioning Band
-   ============================================ */
 .positioning {
   border-top: 1px solid var(--color-border-light);
   border-bottom: 1px solid var(--color-border-light);
@@ -969,13 +942,22 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
 @media (max-width: 768px) {
   .positioning__content {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
+  }
+
+  .positioning__label {
+    font-size: 0.72rem;
+  }
+
+  .positioning__intro {
+    font-size: 0.95rem;
+  }
+
+  .positioning__right {
+    gap: var(--space-md);
   }
 }
 
-/* ============================================
-   Detailed Features Section
-   ============================================ */
 .features-detailed {
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-2xl);
@@ -1003,7 +985,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   background: var(--color-border-light);
 }
 
-/* Feature detail block */
 .feature-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1067,7 +1048,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   flex-shrink: 0;
 }
 
-/* Feature visual cards */
 .feature-detail__card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border-light);
@@ -1098,7 +1078,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   border-radius: var(--radius-md);
 }
 
-/* Tabs mockup */
 .feature-detail__tabs {
   display: flex;
   gap: var(--space-sm);
@@ -1136,7 +1115,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   color: var(--color-success);
 }
 
-/* Flight list mockup */
 .feature-detail__flight-list {
   display: flex;
   flex-direction: column;
@@ -1250,7 +1228,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   font-weight: 600;
 }
 
-/* Timeline mockup */
 .feature-detail__timeline {
   position: relative;
   padding-left: 8px;
@@ -1337,7 +1314,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   font-weight: 400;
 }
 
-/* Team badges & chat mockup */
 .feature-detail__team-badges {
   display: flex;
   flex-wrap: wrap;
@@ -1473,7 +1449,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   height: 13px;
 }
 
-/* Pax operations v2 */
 .pax-card-v2 {
   padding: var(--space-lg) !important;
 }
@@ -1672,7 +1647,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   margin-left: auto;
 }
 
-/* Legacy pax styles (kept for compatibility) */
 .feature-detail__pax-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1868,7 +1842,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   animation: none;
 }
 
-/* Load distribution mockup */
 .feature-detail__steps {
   display: flex;
   flex-direction: column;
@@ -2008,7 +1981,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   color: var(--color-text-muted);
 }
 
-/* Gantt / Parking mockup */
 .feature-detail__gantt {
   display: flex;
   flex-direction: column;
@@ -2146,9 +2118,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   Capabilities Grid
-   ============================================ */
 .capabilities {
   background: var(--color-bg-card);
   border-top: 1px solid var(--color-border-light);
@@ -2291,9 +2260,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   Roles Section
-   ============================================ */
 .roles {
   position: relative;
 }
@@ -2378,9 +2344,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   Security Section
-   ============================================ */
 .security {
   background: var(--color-bg-card);
   border-top: 1px solid var(--color-border-light);
@@ -2446,9 +2409,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   CTA Section
-   ============================================ */
 .cta {
   text-align: center;
   position: relative;
@@ -2565,9 +2525,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   font-size: 0.95rem;
 }
 
-/* ============================================
-   Pilot Program Section
-   ============================================ */
 .pilot {
   padding: var(--space-4xl) 0 var(--space-2xl);
   position: relative;
@@ -2682,9 +2639,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   Footer
-   ============================================ */
 .footer {
   padding: var(--space-lg) 0;
   border-top: 1px solid var(--color-border-light);
@@ -2790,9 +2744,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   color: var(--color-primary);
 }
 
-/* ============================================
-   Product Preview Section (activity feed)
-   ============================================ */
 .product__screen-activity-row {
   display: flex;
   align-items: center;
@@ -2854,9 +2805,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   50% { opacity: 0.7; }
 }
 
-/* ============================================
-   Scroll Reveal Animations
-   ============================================ */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -2886,9 +2834,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   transform: translateY(0);
 }
 
-/* ============================================
-   Accessibility: Reduced Motion
-   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -2911,9 +2856,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   Early Access Modal
-   ============================================ */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -3118,10 +3060,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   }
 }
 
-/* ============================================
-   MOBILE OVERRIDES
-   ============================================ */
-
 @media (max-width: 1023px) {
   .container {
     padding: 0 var(--space-lg);
@@ -3165,33 +3103,36 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
 
   .hero {
     min-height: auto;
-    padding-top: calc(var(--header-height) + var(--space-xl));
-    padding-bottom: var(--space-2xl);
+    padding-top: calc(var(--header-height) + var(--space-lg));
+    padding-bottom: var(--space-xl);
   }
 
-  .hero__badge {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
+  .hero__title {
+    margin-bottom: var(--space-md);
   }
 
   .hero__subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: var(--space-md);
   }
 
   .hero__actions {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
+    gap: var(--space-sm);
   }
 
   .hero__actions .btn {
-    width: 100%;
-    justify-content: center;
-    min-height: 48px;
+    font-size: 0.78rem;
+    padding: 0.6rem 1rem;
   }
 
   .hero__see-more {
-    text-align: center;
+    font-size: 0.82rem;
+  }
+
+  .hero__mockup {
+    margin-top: var(--space-md);
   }
 
   .mockup-card {
@@ -3262,7 +3203,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     flex-shrink: 0;
   }
 
-  /* Feature details mobile */
+  
   .feature-detail {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
@@ -3286,18 +3227,18 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     font-size: 1.25rem;
   }
 
-  /* Roles */
+  
   .roles__content {
     grid-template-columns: 1fr;
   }
 
-  /* Security */
+  
   .security__badges {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
 
-  /* CTA */
+  
   .cta__box,
   .cta__box--premium {
     padding: var(--space-xl) var(--space-lg);
@@ -3312,7 +3253,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     justify-content: center;
   }
 
-  /* Footer */
+  
   .footer__content {
     flex-direction: column;
     text-align: center;
@@ -3332,7 +3273,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     max-width: 120px;
   }
 
-  /* Feature text mobile */
+  
   .feature-detail__number {
     font-size: 0.72rem;
     margin-bottom: var(--space-sm);
@@ -3346,7 +3287,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     font-size: 0.85rem;
   }
 
-  /* Feature tabs mobile */
+  
   .feature-detail__tabs {
     gap: 0;
   }
@@ -3404,7 +3345,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     gap: 4px;
   }
 
-  /* Card padding mobile */
+  
   .feature-detail__card {
     padding: var(--space-sm) var(--space-md);
   }
@@ -3422,7 +3363,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     padding: 4px 8px;
   }
 
-  /* Timeline mobile */
+  
   .feature-detail__timeline-label {
     font-size: 0.6rem;
     letter-spacing: 0.05em;
@@ -3447,7 +3388,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     padding: 7px 0;
   }
 
-  /* Chat mobile */
+  
   .feature-detail__chat {
     max-height: 160px;
     gap: 4px;
@@ -3481,7 +3422,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     height: 26px;
   }
 
-  /* Team badges mobile */
+  
   .feature-detail__team-badges {
     gap: 4px;
     margin-bottom: 6px;
@@ -3492,7 +3433,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     padding: 3px 7px;
   }
 
-  /* Pax mobile */
+  
   .feature-detail__pax-stat {
     padding: 8px 6px;
   }
@@ -3528,7 +3469,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     margin-bottom: var(--space-sm);
   }
 
-  /* Boarding banner mobile */
+  
   .feature-detail__boarding-banner {
     padding: 6px 10px;
   }
@@ -3541,7 +3482,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     font-size: 0.72rem;
   }
 
-  /* Load distribution mobile */
+  
   .feature-detail__load-progress {
     margin-bottom: var(--space-md);
   }
@@ -3584,7 +3525,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     width: 65px;
   }
 
-  /* Gantt mobile */
+  
   .feature-detail__gantt-label {
     font-size: 0.65rem;
     width: 32px;
@@ -3622,7 +3563,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     height: 12px;
   }
 
-  /* Carousel mobile */
+  
   .capabilities__carousel .capability-card {
     min-width: 78%;
     width: 78%;
@@ -3660,7 +3601,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     line-height: 1.45;
   }
 
-  /* Roles mobile */
+  
   .roles__role {
     font-size: 0.8rem;
     min-width: 120px;
@@ -3675,7 +3616,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     gap: var(--space-md);
   }
 
-  /* Security mobile */
+  
   .security__badge {
     gap: var(--space-md);
   }
@@ -3693,7 +3634,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     font-size: 0.82rem;
   }
 
-  /* CTA inline mobile */
+  
   .cta__inline {
     flex-direction: column;
     gap: var(--space-md);
@@ -3705,7 +3646,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     font-size: 0.9rem;
   }
 
-  /* Positioning mobile */
+  
   .positioning__intro {
     font-size: 1rem;
   }
@@ -3724,7 +3665,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     height: 15px;
   }
 
-  /* Footer mobile */
+  
   .footer__link {
     font-size: 0.8rem;
   }
@@ -3747,12 +3688,18 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     font-size: clamp(1.25rem, 5.5vw, 1.75rem);
   }
 
-  .hero__badge {
-    font-size: 0.7rem;
+  .hero__subtitle {
+    font-size: 0.88rem;
   }
 
-  .hero__subtitle {
-    font-size: 0.9rem;
+  .hero__actions {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .mockup-card {
